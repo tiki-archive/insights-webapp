@@ -17,7 +17,11 @@
           destination=""
           selected="true"
         />
-        <sidebar-nav-item text="Search" icon="icon_search" destination="" />
+        <sidebar-nav-item
+          text="Search"
+          icon="icon_search"
+          destination="search"
+        />
         <sidebar-nav-item
           text="Your Library"
           icon="icon_library"

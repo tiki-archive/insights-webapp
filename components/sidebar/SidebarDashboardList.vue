@@ -1,8 +1,8 @@
 <template>
   <ul class="sidebarNavItemContainer">
-    <li class="navItem" v-for="item in dashboards" :key="item.name">
-      <NuxtLink class="navText" :to="item.destination">
-        {{ item.name }}
+    <li v-for="item in dashboards" :key="item.name">
+      <NuxtLink class="navItem" :to="item.destination">
+        <span class="navText">{{ item.name }}</span>
       </NuxtLink>
     </li>
   </ul>
@@ -35,6 +35,8 @@ export default {
   height: 30px
   display: flex
 
+  text-decoration: none
+
 .navText
   margin: auto 0 0
 
@@ -42,7 +44,6 @@ export default {
   line-height: 1rem
   font-weight: 400
 
-  text-decoration: none
 
   color: $text-gray
 
