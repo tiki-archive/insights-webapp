@@ -1,8 +1,8 @@
 <template>
   <ul class="sidebarNavItemContainer">
     <li v-for="item in dashboards" :key="item.name">
-      <NuxtLink class="navItem" :to="item.destination">
-        <span class="navText">{{ item.name }}</span>
+      <NuxtLink class="navText" :to="item.destination">
+        {{ item.name }}
       </NuxtLink>
     </li>
   </ul>
@@ -31,31 +31,27 @@ export default {
   list-style: none
   display: block
 
-.navItem
+.navText
   height: 30px
   display: flex
-
+  align-items: flex-end
   text-decoration: none
-
-.navText
-  margin: auto 0 0
 
   font-size: 0.875rem
   line-height: 1rem
   font-weight: 400
-
 
   color: $text-gray
 
   &:hover
     color: white
 
--webkit-scrollbar
+::-webkit-scrollbar
   width: 12px
 
--webkit-scrollbar-track
+::-webkit-scrollbar-track
   display: hidden
 
--webkit-scrollbar-thumb
+::-webkit-scrollbar-thumb
   background-color: rgb(179, 179, 179)
 </style>

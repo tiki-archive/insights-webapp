@@ -1,17 +1,14 @@
 <template>
-  <NuxtLink class="sidebarNavItemContainer" :to="destination">
+  <NuxtLink
+    class="sidebarNavItemContainer"
+    :to="destination"
+    :class="[selected == 'true' ? 'currentlySelected' : '']"
+  >
     <inline-svg
-      v-bind:class="[
-        selected == 'true' ? 'navIcon currentlySelected' : 'navIcon',
-      ]"
+      class="navIcon"
       :src="require(`~/assets/images/svg/${icon}.svg`)"
     />
-    <span
-      v-bind:class="[
-        selected == 'true' ? 'navText currentlySelected' : 'navText',
-      ]"
-      >{{ text }}</span
-    >
+    <span class="navText">{{ text }}</span>
   </NuxtLink>
 </template>
 
@@ -29,13 +26,11 @@ export default {
 
 .sidebarNavItemContainer
   display: flex
-  width: 100%
   height: 40px
   gap: 16px
   text-decoration: none
 
 .navIcon
-  display: block
   margin: auto 0
 
   width: 24px
@@ -44,7 +39,7 @@ export default {
   fill: $text-gray
 
    // Make it glow white while hovering, or if it is currently selected
-  :hover > &, &.currentlySelected
+  :hover > &, .currentlySelected > &
     -webkit-filter: brightness(1.3)
     -moz-filter: brightness(1.3)
     -ms-filter: brightness(1.3)
@@ -61,6 +56,6 @@ export default {
   color: $text-gray
 
   // Make it glow white while hovering, or if it is currently selected
-  :hover > &, &.currentlySelected
+  :hover > &, .currentlySelected > &
     color: white
 </style>

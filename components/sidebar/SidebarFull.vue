@@ -1,4 +1,3 @@
-<!-- Please remove this file from your project -->
 <template>
   <div class="sidebar">
     <!-- The top elements of the sidebar which are the same size regardless of device -->
@@ -25,7 +24,7 @@
         <sidebar-nav-item
           text="Your Library"
           icon="icon_library"
-          destination=""
+          destination="library"
         />
       </div>
 
@@ -57,7 +56,7 @@
     <div class="sidebarBottomHalf">
       <sidebar-dashboard-list
         class="sidebarSectionBottom"
-        :dashboards="items"
+        :dashboards="temp_dashboards"
       />
     </div>
   </div>
@@ -72,7 +71,7 @@ export default {
   name: 'SidebarFull',
   data() {
     return {
-      items: [
+      temp_dashboards: [
         { name: 'Some Random Dashboard 1', destination: 'to' },
         { name: 'Some Random Dashboard 2', destination: 'to' },
         { name: 'Some Random Dashboard 3', destination: 'to' },
@@ -109,6 +108,7 @@ export default {
 
 <style scoped lang="sass">
 @import "assets/styles/theme"
+@import "assets/styles/mixins"
 
 .sidebar
   width: 241px
@@ -143,4 +143,13 @@ export default {
 
 .sidebarSectionBottom
   margin-left: 24px
+
+@include for-phone
+  .sidebar
+    width: 100%
+    height: 60vh
+    overflow: hidden
+
+  .sidebarSectionTop
+    text-align: center
 </style>
