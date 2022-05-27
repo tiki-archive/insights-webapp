@@ -4,7 +4,7 @@
     <div class="sidebarTopHalf">
       <div class="sidebarSectionTop">
         <NuxtLink to="/">
-          <tiki-logo class="sidebarLogo" />
+          <utils-svg-cmp class="sidebarLogo" name="tiki_logo" />
         </NuxtLink>
       </div>
 
@@ -63,11 +63,11 @@
 </template>
 
 <script>
-import TikiLogo from '../general/TikiLogo.vue'
 import SidebarDashboardList from './SidebarDashboardList.vue'
 import SidebarNavItem from './SidebarNavItem.vue'
+import UtilsSvgCmp from '../utils/UtilsSvgCmp.vue'
 export default {
-  components: { TikiLogo, SidebarNavItem, SidebarDashboardList },
+  components: { SidebarNavItem, SidebarDashboardList, UtilsSvgCmp },
   name: 'SidebarFull',
   data() {
     return {
@@ -111,7 +111,7 @@ export default {
 @import "assets/styles/mixins"
 
 .sidebar
-  width: 241px
+  width: 243px
   height: 100vh
   overflow: hidden
 

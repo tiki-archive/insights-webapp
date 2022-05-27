@@ -1,62 +1,43 @@
 <template>
-  <div class="page">
-    <span class="sideContainer">
-      <sidebar-full-vue />
-    </span>
+  <div class="homePage">
+    <h1 class="titleText">Welcome back</h1>
+    <wide-card-list class="mostRelevant" title="Insights you might like" />
 
-    <span class="mainContainer">
-      <home-page-full-view />
-    </span>
+    <h2 class="titleText">Insights, but tall this time</h2>
+    <tall-card-list class="mostRelevant" />
+
+    <title-description
+      class="titleText"
+      title="Description"
+      description="The Best Subject Lines insight details the highest performing subject lines from the brand. The insight may be helpful in determining customer engagement, conversion rates, customer interests, and campaign optimization. "
+    />
   </div>
 </template>
 
 <script>
-import HomePageFullView from '~/components/home/HomePageFull.vue'
-import SidebarFullVue from '~/components/sidebar/SidebarFull.vue'
-
+import WideCardList from '~/components/wide_card_list/WideCardList.vue'
+import TallCardList from '~/components/tall_card_list/TallCardList.vue'
+import TitleDescription from '~/components/title_description/TitleDescription.vue'
 export default {
-  name: 'IndexPage',
-  components: {
-    SidebarFullVue,
-    HomePageFullView,
-  },
-  head() {
-    return {
-      title: 'TIKI Insights | Home',
-    }
-  },
+  name: 'HomeFull',
+  components: { WideCardList, TallCardList, TitleDescription },
 }
 </script>
 
 <style scoped lang="sass">
-@import "assets/styles/mixins"
+@import "assets/styles/theme"
 
-.page
-  width: 100%
-  height: 100vh
-  background: linear-gradient(0deg, #27002E 0%, rgba(39, 0, 46, 0.881875) 37.5%, rgba(39, 0, 46, 0.82) 100%)
-
+.homePage
+  margin: auto 32px
+  padding-top: 1.75vh
   overflow: hidden
+  position: relative
 
-  display: flex
+.titleText
+  margin: 70px 0 16px
 
-.mainContainer
-  width: calc(100vw - 241px) // this is loose as hell
-  max-height: 100vh
-
-  overflow-y: scroll
-
-::-webkit-scrollbar
-  width: 12px
-
-::-webkit-scrollbar-track
-  display: hidden
-
-::-webkit-scrollbar-thumb
-  background-color: rgb(179, 179, 179)
-
-@include for-phone
-  .page
-    display: block
-    overflow-y: scroll
+.mostRelevant
+  width: 100%
+  margin: 0 auto
+  display: block
 </style>

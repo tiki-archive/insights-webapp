@@ -1,9 +1,7 @@
 <template>
   <div class="tallCardList">
-    <content-title class="contentTitle" :text="title" />
-
     <div class="tallCardGrid">
-      <tall-card
+      <tall-card-list-item
         v-for="item in cards"
         :key="item.name"
         :title="item.title"
@@ -16,10 +14,9 @@
 </template>
 
 <script>
-import ContentTitle from './ContentTitle.vue'
-import TallCard from './TallCard.vue'
+import TallCardListItem from './TallCardListItem.vue'
 export default {
-  components: { TallCard, ContentTitle },
+  components: { TallCardListItem },
   name: 'HomeFull',
   props: {
     title: {
@@ -30,14 +27,14 @@ export default {
       default: () => {
         return [
           {
-            title: 'Lex Fridman Pod',
-            description: 'Podcast ab things',
+            title: 'Liked Insights',
             source:
               'https://i.scdn.co/image/ab67656300005f1f563ebb538d297875b10114b7',
           },
           {
-            title: 'Lex Fridman Pod',
-            description: 'Podcast ab things',
+            title: 'Lex Fridman Podcast long',
+            description:
+              'A two line description is needed if we want to properly describe some insights',
             source:
               'https://i.scdn.co/image/ab67656300005f1f563ebb538d297875b10114b7',
           },

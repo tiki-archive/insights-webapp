@@ -45,7 +45,6 @@ export default {
     -ms-filter: brightness(1.3)
     filter: brightness(1.3)
 
-
 .navText
   margin: auto  0
 
