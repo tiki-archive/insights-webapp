@@ -19,7 +19,7 @@
       </button>
     </span>
 
-    <search-bar />
+    <search-bar v-if="showSearch == true" />
 
     <profile-button class="userButton" :name="name" :icon="icon" />
   </div>
@@ -32,7 +32,7 @@ import SearchBar from '../search_bar/SearchBar.vue'
 export default {
   components: { UtilsSvgCmp, ProfileButton, SearchBar },
   name: 'SidebarFull',
-  props: ['name', 'icon'],
+  props: ['name', 'icon', 'showSearch'],
   methods: {
     onScroll(event) {
       if (event.target.className === 'mainContainer') {
@@ -62,7 +62,7 @@ export default {
 
 .navbar
   display: flex
-  height: 64px
+  height: $navbar-height
   position: fixed
   right: 0
   width: calc(100vw - 243px)

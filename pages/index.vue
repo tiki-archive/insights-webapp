@@ -1,5 +1,5 @@
 <template>
-  <div class="homePage">
+  <div class="pageContainer">
     <h1 class="titleText">Welcome back</h1>
     <wide-card-list class="mostRelevant" title="Insights you might like" />
 
@@ -21,15 +21,15 @@ import TitleDescription from '~/components/title_description/TitleDescription.vu
 export default {
   name: 'HomeFull',
   components: { WideCardList, TallCardList, TitleDescription },
+  scrollToTop: true,
 }
 </script>
 
 <style scoped lang="sass">
 @import "assets/styles/theme"
 
-.homePage
-  margin: auto 32px
-  padding-top: 1.75vh
+.pageContainer
+  margin: 24px 32px
   overflow: hidden
   position: relative
 

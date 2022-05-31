@@ -1,7 +1,14 @@
 <template>
   <ul class="sidebarNavItemContainer">
     <li v-for="item in dashboards" :key="item.name">
-      <NuxtLink class="navLink" :to="item.destination">
+      <NuxtLink
+        :class="[
+          $nuxt.$route.path == item.destination
+            ? 'navLink currentlySelected'
+            : 'navLink',
+        ]"
+        :to="item.destination"
+      >
         {{ item.name }}
       </NuxtLink>
     </li>
@@ -49,14 +56,6 @@ export default {
 
   color: $text-gray
 
-  &:hover
+  &:hover, &.currentlySelected
     color: white
-
-@include for-phone
-  .navLink
-    height: auto
-
-    font-size: 1.25rem
-    line-height: 2rem
-    font-weight: 400
 </style>

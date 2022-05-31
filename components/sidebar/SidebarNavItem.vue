@@ -2,7 +2,7 @@
   <NuxtLink
     class="sidebarNavItemContainer"
     :to="destination"
-    :class="[selected == 'true' ? 'currentlySelected' : '']"
+    :class="[$nuxt.$route.path == destination ? 'currentlySelected' : '']"
   >
     <inline-svg
       class="navIcon"
@@ -17,7 +17,7 @@ import InlineSvg from 'vue-inline-svg'
 
 export default {
   components: { InlineSvg },
-  props: ['text', 'icon', 'selected', 'destination'],
+  props: ['text', 'icon', 'destination'],
 }
 </script>
 
@@ -58,19 +58,4 @@ export default {
   // Make it glow white while hovering, or if it is currently selected
   :hover > &, .currentlySelected > &
     color: white
-
-@include for-phone
-
-  .sidebarNavItemContainer
-    height: 52px
-    gap: 20px
-
-  .navIcon
-    width: 36px
-    height: 36px
-
-  .navText
-    font-size: 1.25rem
-    line-height: 2.0rem
-    font-weight: 400
 </style>
