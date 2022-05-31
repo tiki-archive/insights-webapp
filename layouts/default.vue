@@ -1,7 +1,14 @@
 <template>
-  <div class="page">
+  <div :class="'page' + (showMobileMenu ? ' disableScroll' : '')">
     <span class="sideContainer">
-      <sidebar />
+      <span class="mobileOnly">
+        <mobile-header @clickedMenuButton="showMobileMenu = !showMobileMenu" />
+        <sidebar v-if="showMobileMenu" />
+      </span>
+
+      <span class="desktopOnly">
+        <sidebar />
+      </span>
     </span>
 
     <span class="mainContainer">
@@ -9,21 +16,40 @@
         name="Nick"
         icon="https://s3-alpha.figma.com/profile/6da8521c-f18e-47e3-961f-c6f765fc4014"
       />
+
       <Nuxt id="nuxt" />
     </span>
   </div>
 </template>
 
 <script>
+import MobileHeader from '~/components/mobile_header/MobileHeader.vue'
 import Navbar from '~/components/navbar/Navbar.vue'
+import Sidebar from '~/components/sidebar/Sidebar.vue'
 export default {
-  components: { Navbar },
+  components: { Navbar, MobileHeader, Sidebar },
   name: 'DefaultLayout',
+  data() {
+    return {
+      showMobileMenu: false,
+    }
+  },
+  watch: {
+    $route() {
+      // when user clicks link in mobile menu to go to new route, we should close it
+      this.showMobileMenu = false
+    },
+  },
 }
 </script>
 
-<style scoped lang="sass">
+<style lang="sass">
+@import "assets/styles/theme"
 @import "assets/styles/mixins"
+
+body
+  margin: 0
+  font-family: $font-family-nunito-sans
 
 .page
   width: 100%
@@ -36,46 +62,42 @@ export default {
 
   z-index: 100
 
-#navbar // this works because the navbar id is given in the component for its own scroll logic
-  z-index: 100
-
-#nuxt
-  z-index: 10
-
 .mainContainer
   width: calc(100vw - 243px) // this is loose as hell
   max-height: 100vh
 
   overflow-y: scroll
 
-::-webkit-scrollbar
-  width: 12px
+#navbar // this works because the navbar id is given in the component for its own scroll logic
+  z-index: 100
 
-::-webkit-scrollbar-track
-  display: hidden
+#nuxt
+  z-index: 10
 
-::-webkit-scrollbar-thumb
-  background-color: rgb(179, 179, 179)
+@include for-tablet
+  .mobileOnly
+    display: none !important
+
+  ::-webkit-scrollbar
+    width: 12px
+
+  ::-webkit-scrollbar-track
+    display: hidden
+
+  ::-webkit-scrollbar-thumb
+    background-color: rgb(179, 179, 179)
 
 @include for-phone
+  .desktopOnly
+    display: none !important // todo: no
+
   .page
     display: block
     overflow-y: scroll
-</style>
 
-<style lang="sass">
-@import "assets/styles/theme"
+  .disableScroll
+    overflow: hidden
 
-body
-  margin: 0
-  font-family: $font-family-nunito-sans
-
-::-webkit-scrollbar
-  width: 12px
-
-::-webkit-scrollbar-track
-  display: hidden
-
-::-webkit-scrollbar-thumb
-  background-color: rgb(179, 179, 179)
+  #navbar
+    visibility: hidden
 </style>

@@ -1,15 +1,15 @@
 <template>
   <div class="sidebar">
     <!-- The top elements of the sidebar which are the same size regardless of device -->
-    <div class="sidebarTopHalf">
-      <div class="sidebarSectionTop">
+    <div>
+      <div class="sidebarSectionPadded sidebarLogoContainer">
         <NuxtLink to="/">
           <utils-svg-cmp class="sidebarLogo" name="tiki_logo" />
         </NuxtLink>
       </div>
 
       <!-- Home, Search, Library -->
-      <div class="sidebarSectionTop">
+      <div class="sidebarSectionPadded sidebarSectionTop">
         <sidebar-nav-item
           text="Home"
           icon="icon_home"
@@ -29,7 +29,7 @@
       </div>
 
       <!-- Create Dashboard, Liked Insights, Your Company -->
-      <div class="sidebarSectionTop">
+      <div class="sidebarSectionPadded">
         <sidebar-nav-item
           text="Create Dashboard"
           icon="icon_add_dashboard"
@@ -53,12 +53,10 @@
     </div>
 
     <!-- The bottom, scrollable sidebar content taking up the rest of the space -->
-    <div class="sidebarBottomHalf">
-      <sidebar-dashboard-list
-        class="sidebarSectionBottom"
-        :dashboards="temp_dashboards"
-      />
-    </div>
+    <sidebar-dashboard-list
+      class="sidebarSectionBottom"
+      :dashboards="temp_dashboards"
+    />
   </div>
 </template>
 
@@ -72,7 +70,10 @@ export default {
   data() {
     return {
       temp_dashboards: [
-        { name: 'Some Random Dashboard 1', destination: 'to' },
+        {
+          name: 'Some Random Dashboard 1 2 2e  we we we we w2 ee ',
+          destination: 'to',
+        },
         { name: 'Some Random Dashboard 2', destination: 'to' },
         { name: 'Some Random Dashboard 3', destination: 'to' },
         { name: 'Some Random Dashboard 4', destination: 'to' },
@@ -115,7 +116,8 @@ export default {
   height: 100vh
   overflow: hidden
 
-  display: table
+  display: flex
+  flex-flow: column
 
   color: white
   background: $tiki-purple
@@ -123,11 +125,7 @@ export default {
 .sidebarLogo
   max-height: 38px
 
-.sidebarTopHalf
-  display: table-row
-  height: 0
-
-.sidebarSectionTop
+.sidebarSectionPadded
   padding: 24px 24px 0 24px
 
 .separatingBar
@@ -137,19 +135,19 @@ export default {
   margin: 8px 24px 0 24px
   min-height: 1px
 
-.sidebarBottomHalf
-  display: table-row
-  height: auto
-
 .sidebarSectionBottom
-  margin-left: 24px
+  padding: 0 24px
+  height: auto
 
 @include for-phone
   .sidebar
     width: 100%
-    height: 60vh
+    height: 90vh
     overflow: hidden
 
+  .sidebarLogoContainer
+    display: none
+
   .sidebarSectionTop
-    text-align: center
+    padding-top: 0
 </style>

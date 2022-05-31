@@ -1,7 +1,7 @@
 <template>
   <ul class="sidebarNavItemContainer">
     <li v-for="item in dashboards" :key="item.name">
-      <NuxtLink class="navText" :to="item.destination">
+      <NuxtLink class="navLink" :to="item.destination">
         {{ item.name }}
       </NuxtLink>
     </li>
@@ -19,23 +19,29 @@ export default {
 
 <style scoped lang="sass">
 @import "assets/styles/theme"
+@import "assets/styles/mixins"
 
 .sidebarNavItemContainer
   margin: auto 0 30px
   padding: 0
-  height: 90%
 
   overflow-y: scroll
   overflow-x: hidden
 
   list-style: none
-  display: block
 
-.navText
+  display: flex
+  flex-direction: column
+
+.navLink
+  text-decoration: none
+
   height: 30px
   display: flex
   align-items: flex-end
-  text-decoration: none
+
+  white-space: nowrap
+  overflow: hidden
 
   font-size: 0.875rem
   line-height: 1rem
@@ -46,12 +52,11 @@ export default {
   &:hover
     color: white
 
-::-webkit-scrollbar
-  width: 12px
+@include for-phone
+  .navLink
+    height: auto
 
-::-webkit-scrollbar-track
-  display: hidden
-
-::-webkit-scrollbar-thumb
-  background-color: rgb(179, 179, 179)
+    font-size: 1.25rem
+    line-height: 2rem
+    font-weight: 400
 </style>

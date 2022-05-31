@@ -23,6 +23,7 @@ export default {
 
 <style scoped lang="sass">
 @import "assets/styles/theme"
+@import "assets/styles/mixins"
 
 .sidebarNavItemContainer
   display: flex
@@ -46,7 +47,7 @@ export default {
     filter: brightness(1.3)
 
 .navText
-  margin: auto  0
+  margin: auto 0
 
   font-size: 0.875rem
   line-height: 1rem
@@ -57,4 +58,19 @@ export default {
   // Make it glow white while hovering, or if it is currently selected
   :hover > &, .currentlySelected > &
     color: white
+
+@include for-phone
+
+  .sidebarNavItemContainer
+    height: 52px
+    gap: 20px
+
+  .navIcon
+    width: 36px
+    height: 36px
+
+  .navText
+    font-size: 1.25rem
+    line-height: 2.0rem
+    font-weight: 400
 </style>

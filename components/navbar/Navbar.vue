@@ -19,18 +19,18 @@
       </button>
     </span>
 
-    <button class="userButton">
-      <img class="userIcon" :src="icon" />
-      <span class="userName">{{ name }}</span>
-      <utils-svg-cmp class="downArrow" name="icon_down_arrow" />
-    </button>
+    <search-bar />
+
+    <profile-button class="userButton" :name="name" :icon="icon" />
   </div>
 </template>
 
 <script>
 import UtilsSvgCmp from '../utils/UtilsSvgCmp.vue'
+import ProfileButton from '../profile_button/ProfileButton.vue'
+import SearchBar from '../search_bar/SearchBar.vue'
 export default {
-  components: { UtilsSvgCmp },
+  components: { UtilsSvgCmp, ProfileButton, SearchBar },
   name: 'SidebarFull',
   props: ['name', 'icon'],
   methods: {
@@ -72,7 +72,7 @@ export default {
 
   gap: 16px
 
-  margin: auto 32px
+  margin: auto 16px auto 32px
   float: left
 
 .navArrow
@@ -99,40 +99,7 @@ export default {
   .active > &
     filter: brightness(10)
 
-
 .userButton
-  display: flex
-  align-items: center
-
-  border: 0
-  border-radius: 23px
-  background-color: $tiki-purple
-
-  gap: 8px
-  padding: 2px
-  height: 32px
-
   margin: auto 32px auto auto
-
   float: right
-
-
-  &:hover
-    background-color: lighten($tiki-purple, 3%)
-
-.userIcon
-  width: 28px
-  height: 28px
-  display: inline-block
-
-  border-radius: 23px
-
-.userName
-  color: white
-  font-family: $font-family-nunito-sans
-  font-size: .875rem
-  font-weight: 700
-
-.downArrow
-  margin-right: 8px
 </style>
