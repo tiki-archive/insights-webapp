@@ -19,9 +19,6 @@ export default {
   components: { TallCardListItem },
   name: 'HomeFull',
   props: {
-    title: {
-      type: String,
-    },
     cards: {
       type: Array,
       default: () => {
