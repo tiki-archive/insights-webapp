@@ -5,7 +5,7 @@
       <insight-list-item
         :name="item.name"
         :icon="item.icon"
-        :confidence_level="item.confidence_level2"
+        :confidence_level="item.confidence_level"
       />
     </div>
   </div>
@@ -18,7 +18,7 @@ export default {
   props: {
     number: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     insights: {
       type: Array,
@@ -43,11 +43,6 @@ export default {
             name: 'Best Subject Lines',
             icon: 'icon_insight_horizontal_bar',
             confidence_level: 98,
-          },
-          {
-            name: 'Customer Locations',
-            icon: 'icon_insight_map',
-            confidence_level: 95,
           },
         ]
       },

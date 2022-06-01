@@ -1,9 +1,9 @@
 <template>
   <NuxtLink class="topResultCard" :to="destination == null ? '' : destination">
-    <div class="cardContent">
+    <span class="cardContent">
       <img class="cardImage" :src="image" />
 
-      <div class="cardInfo">
+      <span class="cardInfo">
         <h2 class="cardTitle">{{ title }}</h2>
         <span class="cardDesc">
           <span class="cardAuthor">By {{ author }}</span>
@@ -11,8 +11,8 @@
             result_type
           }}</span>
         </span>
-      </div>
-    </div>
+      </span>
+    </span>
   </NuxtLink>
 </template>
 
@@ -27,10 +27,11 @@ export default {
 
 .topResultCard
   width: 100%
+
   background: rgba(84, 84, 84, 0.25)
   border-radius: 8px
 
-  display: flex
+  display: block
 
   text-decoration: none
 
@@ -39,12 +40,22 @@ export default {
 
 .cardContent
   width: 100%
+  height: 100%
+
   box-sizing: border-box
-  padding: 30px 0 18px 30px
+  padding: 30px 30px 18px 30px
+
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
 
 .cardImage
-  width: 142px
+  height: 50%
+
+  margin: auto auto auto 0
+
   display: block
+
   border-radius: 14px
 
 .cardInfo
@@ -54,7 +65,7 @@ export default {
 .cardTitle
   color: white
 
-  font-size: calc(.875rem + 1.75vw)
+  font-size: calc(.875rem + 140%)
   font-weight: 700
 
   padding-top: 16px

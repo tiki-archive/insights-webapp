@@ -85,6 +85,8 @@ export default {
 
   /* Position the tooltip */
   position: absolute
+  right: 0
+  max-width: 10vw
   z-index: 1
 
 .tooltip:hover .tooltiptext

@@ -2,29 +2,42 @@
   <div class="pageContainer">
     <!-- <search-bar /> -->
 
+    <div class="searchResultsContainer">
+      <span class="topResult">
+        <h2 class="titleText">Top Result</h2>
+
+        <top-result-card
+          title="Global Boot Market"
+          image="https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-1_672x672.jpg"
+          author="TIKI"
+          result_type="Dashboard"
+          class="topCard"
+        />
+      </span>
+
+      <span class="secondaryResult">
+        <h2 class="titleText">Top Insights</h2>
+
+        <insight-list />
+      </span>
+
+      <span class="gridRow">
+        <h2>Companies</h2>
+        <tall-card-list class="mostRelevant" />
+      </span>
+
+      <span class="gridRow">
+        <h2>Companies 2</h2>
+        <tall-card-list class="mostRelevant" />
+      </span>
+
+      <span class="gridRow">
+        <h2>Companies 3</h2>
+        <tall-card-list class="mostRelevant" />
+      </span>
+    </div>
+
     <!-- <h1 class="titleText">Search page {{ slug }}</h1> -->
-    <span class="topResult">
-      <h1 class="titleText">Top Result</h1>
-
-      <top-result-card
-        title="Global Boot Market"
-        image="https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-1_672x672.jpg"
-        author="TIKI"
-        result_type="Dashboard"
-      />
-    </span>
-
-    <span class="insightResults">
-      <h1 class="titleText">Top Insights</h1>
-
-      <insight-list />
-    </span>
-
-    <h2>Companies</h2>
-    <tall-card-list class="mostRelevant" />
-
-    <h2>Dashboards</h2>
-    <tall-card-list class="mostRelevant" />
   </div>
 </template>
 
@@ -57,18 +70,34 @@ export default {
 
   display: block
 
+.searchResultsContainer
+  display: flex
+  flex-wrap: wrap
+
+  column-gap: 24px
+  row-gap: 32px
+
+  margin-top: 5vh
+
+  justify-content: space-between
+
 .topResult
-  width: 40%
-  margin: auto 10% auto 0
-  display: inline-block
-  vertical-align: top
+  box-sizing: border-box
 
-.insightResults
-  width: 40%
-  margin: auto 0 auto auto
-  display: inline-block
-  vertical-align: top
+  display: flex
 
-.titleText, .mostRelevant
-  margin: 70px 0 16px
+  flex-direction: column
+
+  flex: 0 0 2
+
+.topCard
+  height: 260px
+
+.secondaryResult
+  flex-basis: 6
+  flex-grow: 6
+  flex-shrink: 0
+
+.gridRow
+  flex-basis: 100%
 </style>
