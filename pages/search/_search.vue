@@ -4,7 +4,7 @@
 
     <div class="searchResultsContainer">
       <span class="topResult">
-        <h2 class="titleText">Top Result</h2>
+        <h2 class="titleText">Top result {{ slug }}</h2>
 
         <top-result-card
           title="Global Boot Market"
@@ -16,24 +16,60 @@
       </span>
 
       <span class="secondaryResult">
-        <h2 class="titleText">Top Insights</h2>
+        <span class="heading">
+          <h2>
+            <NuxtLink
+              class="headingLink"
+              :to="'/search/insights/' + searchTerm"
+            >
+              Insights
+            </NuxtLink>
+          </h2>
+
+          <NuxtLink class="seeAll" :to="'/search/insights/' + searchTerm">
+            SEE ALL
+          </NuxtLink>
+        </span>
 
         <insight-list />
       </span>
 
       <span class="gridRow">
-        <h2>Companies</h2>
-        <tall-card-list class="mostRelevant" />
+        <span class="heading">
+          <h2>
+            <NuxtLink
+              class="headingLink"
+              :to="'/search/companies/' + searchTerm"
+            >
+              Companies
+            </NuxtLink>
+          </h2>
+
+          <NuxtLink class="seeAll" :to="'/search/companies/' + searchTerm">
+            SEE ALL
+          </NuxtLink>
+        </span>
+
+        <tall-card-list />
       </span>
 
       <span class="gridRow">
-        <h2>Companies 2</h2>
-        <tall-card-list class="mostRelevant" />
-      </span>
+        <span class="heading">
+          <h2>
+            <NuxtLink
+              class="headingLink"
+              :to="'/search/dashboard/' + searchTerm"
+            >
+              Dashboards
+            </NuxtLink>
+          </h2>
 
-      <span class="gridRow">
-        <h2>Companies 3</h2>
-        <tall-card-list class="mostRelevant" />
+          <NuxtLink class="seeAll" :to="'/search/dashboard/' + searchTerm">
+            SEE ALL
+          </NuxtLink>
+        </span>
+
+        <tall-card-list />
       </span>
     </div>
 
@@ -50,11 +86,8 @@ export default {
   components: { TopResultCard, InsightList },
   data() {
     return {
-      slug: this.$route.params.search,
+      searchTerm: this.$route.params.search,
     }
-  },
-  created() {
-    this.$root.$emit('enableSearch')
   },
   scrollToTop: true,
 }
@@ -64,40 +97,52 @@ export default {
 @import "assets/styles/theme"
 
 .pageContainer
-  margin: 24px 32px 0
+  margin: calc(4vh + 24px) 32px 0 32px
   overflow: hidden
   position: relative
 
   display: block
 
 .searchResultsContainer
-  display: flex
-  flex-wrap: wrap
+  display: grid
 
-  column-gap: 24px
-  row-gap: 32px
-
-  margin-top: 5vh
+  grid-template: 332px/repeat(auto-fill,minmax(max(180px,10%),1fr))
+  grid-column-gap: 24px
+  grid-row-gap: min(2.2vh, 22px)
 
   justify-content: space-between
 
 .topResult
-  box-sizing: border-box
-
-  display: flex
-
-  flex-direction: column
-
-  flex: 0 0 2
-
-.topCard
+  grid-column: 1 / 3
   height: 260px
 
 .secondaryResult
-  flex-basis: 6
-  flex-grow: 6
-  flex-shrink: 0
+  grid-column: 3 / -1
 
 .gridRow
-  flex-basis: 100%
+   grid-column: 1 / -1
+
+.heading
+  display: flex
+
+h2
+  margin: 16px 0
+
+.seeAll
+  color: $see-all-text
+  font-weight: 800
+  font-size: .875rem
+  text-decoration: none
+
+  margin: auto 0 auto auto
+
+  &:hover
+    text-decoration: underline
+
+.headingLink
+  text-decoration: none
+  color: white
+
+  &:hover
+    text-decoration: underline
 </style>

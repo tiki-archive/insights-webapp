@@ -4,7 +4,11 @@
       class="searchBar"
       type="search"
       v-model="searchTerm"
-      placeholder="Search insights, companies, dashboards, ..."
+      :placeholder="
+        searchTerm != null && searchTerm != ''
+          ? searchTerm
+          : 'Search insights, companies, dashboards, ...'
+      "
     />
   </form>
 </template>
@@ -15,7 +19,7 @@ export default {
   name: 'SearchBar',
   data() {
     return {
-      searchTerm: null,
+      searchTerm: this.$route.params.search,
     }
   },
   methods: {

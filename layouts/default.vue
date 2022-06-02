@@ -48,9 +48,13 @@ body
   margin: 0
   font-family: $font-family-nunito-sans
 
+  overflow: hidden
+
 .page
   width: 100%
+
   height: 100vh
+
   background: linear-gradient(0deg, #27002E 0%, rgba(39, 0, 46, 0.881875) 37.5%, rgba(39, 0, 46, 0.82) 100%)
 
   overflow: hidden
@@ -63,7 +67,9 @@ body
   width: calc(100vw - 243px) // this is loose as hell
   max-height: 100vh
 
-  overflow-y: scroll
+  box-sizing: border-box
+
+  overflow-y: overlay
 
 #navbar // this works because the navbar id is given in the component for its own scroll logic
   z-index: 15
@@ -73,9 +79,6 @@ body
 
 ::-webkit-scrollbar
   width: 12px
-
-::-webkit-scrollbar-track
-  display: hidden
 
 ::-webkit-scrollbar-thumb
   background-color: rgb(179, 179, 179)

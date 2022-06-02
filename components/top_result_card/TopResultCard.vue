@@ -27,6 +27,8 @@ export default {
 
 .topResultCard
   width: 100%
+  height: 100%
+  max-height: 100%
 
   background: rgba(84, 84, 84, 0.25)
   border-radius: 8px
@@ -50,7 +52,7 @@ export default {
   justify-content: flex-end
 
 .cardImage
-  height: 50%
+  width: 108px
 
   margin: auto auto auto 0
 
@@ -65,7 +67,7 @@ export default {
 .cardTitle
   color: white
 
-  font-size: calc(.875rem + 140%)
+  font-size: calc(.875rem + 130%)
   font-weight: 700
 
   padding-top: 16px

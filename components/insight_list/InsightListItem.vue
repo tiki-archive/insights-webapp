@@ -2,7 +2,10 @@
   <NuxtLink class="insightCard" :to="destination == null ? '' : destination">
     <utils-svg-cmp class="insightImage" :name="icon" />
 
-    <span class="insightTitle">{{ name }}</span>
+    <span class="insightInfo">
+      <span class="insightTitle">{{ name }}</span>
+      <span class="insightDescription">{{ description }}</span>
+    </span>
 
     <span class="insightConfidence" v-if="confidence_level != null"
       >{{ confidence_level }}% CL</span
@@ -21,7 +24,7 @@
 
 <script>
 export default {
-  props: ['icon', 'name', 'confidence_level', 'destination'],
+  props: ['icon', 'name', 'description', 'confidence_level', 'destination'],
 }
 </script>
 
@@ -41,18 +44,28 @@ export default {
   height: 45px
   margin: auto 0
 
+.insightInfo
+  margin: auto 0
+  padding-left: 16px
+
+  display: flex
+  flex-direction: column
+
 .insightTitle
   color: white
 
   font-size: 1rem
   font-weight: 700
 
-  margin: auto 0
-  padding: 16px
-
   white-space: nowrap
   overflow: hidden
   text-overflow: ellipsis
+
+.insightDescription
+  color: $gray
+
+  font-size: .875rem
+  font-weight: 600
 
 .insightConfidence
   color: $text-gray

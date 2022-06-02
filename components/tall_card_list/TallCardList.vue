@@ -1,6 +1,6 @@
 <template>
   <div class="tallCardList">
-    <div class="tallCardGrid">
+    <div :class="'tallCardGrid' + (show_all ? '' : ' oneRowGrid')">
       <tall-card-list-item
         v-for="item in cards"
         :key="item.name"
@@ -19,6 +19,10 @@ export default {
   components: { TallCardListItem },
   name: 'HomeFull',
   props: {
+    show_all: {
+      type: Boolean,
+      default: false,
+    },
     cards: {
       type: Array,
       default: () => {
@@ -91,8 +95,14 @@ export default {
   display: grid
 
   grid-template: auto/repeat(auto-fill,minmax(max(180px,10%),1fr))
-  grid-column-gap: 18px
+  grid-column-gap: 24px
+
   grid-row-gap: min(2.2vh, 22px)
 
   justify-content: space-between
+
+.oneRowGrid
+  grid-auto-rows: 0
+  grid-row-gap: 0
+  overflow-y: hidden
 </style>
