@@ -9,7 +9,7 @@
       />
     </span>
 
-    <nuxt-link class="submitButton" to="/home">
+    <nuxt-link class="purpleButton" to="/home">
       <span>Sign Up</span>
     </nuxt-link>
 
@@ -46,4 +46,19 @@ h1
   flex-direction: column
 
   margin: auto auto
+
+.otherAction
+  font-size: 1rem
+
+  font-weight: 400
+  letter-spacing: 0px
+
+  text-align: center
+
+.otherActionLink
+  color: $tiki-purple
+  text-decoration: underline
+
+  &:hover
+    color: $tiki-pink
 </style>

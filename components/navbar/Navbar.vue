@@ -1,23 +1,25 @@
 <template>
   <div class="navbar" id="navbar">
     <span class="navArrowContainer">
-      <button :class="'navArrow' + [hasPrevPage() ? ' active' : '']">
+      <button
+        :class="'navArrow' + [hasPrevPage() ? ' active' : '']"
+        @click="navigateBack"
+      >
         <utils-svg-cmp class="arrowIcon" name="icon_back_arrow" />
       </button>
-      <router-link to="/">
-        {{ this.$store.state.navigation }}
-      </router-link>
       <button
-        :class="
-          'navArrow' +
-          [this.$store.state.navigation.hasNextPage ? ' active' : '']
-        "
+        :class="'navArrow' + [hasNextPage() ? ' active' : '']"
+        @click="navigateForward"
       >
         <utils-svg-cmp class="arrowIcon" name="icon_forward_arrow" />
       </button>
     </span>
 
     <search-bar v-if="showSearch == true" />
+
+    <router-link to="/">
+      <span style="color: white">{{ this.$store.state.navigation }}</span>
+    </router-link>
 
     <profile-button class="userButton" :name="name" :icon="icon" />
   </div>
@@ -46,15 +48,22 @@ export default {
       }
     },
     hasPrevPage() {
-      console.log('HAS PREV PAGE')
-      console.log(this.$store.state.currentIndex > 0)
-      return this.$store.state.currentIndex > 0
+      return this.$store.getters['navigation/hasPrevPage']
     },
     hasNextPage() {
-      return (
-        this.$store.state.pagesVisited.length >
-        this.$store.state.currentIndex + 1
-      )
+      return this.$store.getters['navigation/hasNextPage']
+    },
+    navigateBack() {
+      if (!this.hasPrevPage()) return
+
+      this.$store.commit('navigation/navigateBack', this.to)
+      this.$router.push(this.$store.getters['navigation/getCurrentPage'])
+    },
+    navigateForward() {
+      if (!this.hasNextPage()) return
+
+      this.$store.commit('navigation/navigateForward', this.to)
+      this.$router.push(this.$store.getters['navigation/getCurrentPage'])
     },
   },
   mounted() {
@@ -68,10 +77,6 @@ export default {
       path: '/',
     }
   },
-  created() {
-    console.log('HELLO')
-    console.log(this.$store.state)
-  },
 }
 </script>
 
@@ -84,7 +89,6 @@ export default {
   position: fixed
   right: 0
   width: calc(100vw - 243px)
-
 .navArrowContainer
   display: flex
 
@@ -107,8 +111,9 @@ export default {
 
   background-color: $tiki-purple
 
-  &:hover
-    background-color: lighten($tiki-purple, 3%)
+  &.active
+    &:hover
+      background-color: lighten($tiki-purple, 3%)
 
 .arrowIcon
   margin: auto

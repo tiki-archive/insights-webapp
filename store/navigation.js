@@ -1,6 +1,6 @@
 export const state = () => ({
   pagesVisited: [],
-  currentIndex: -1,
+  currentIndex: 0,
 })
 
 export const mutations = {
@@ -18,12 +18,22 @@ export const mutations = {
 
     state.currentIndex++
   },
-
-  goNextPage(state, routeName) {
+  navigateBack(state) {
+    state.currentIndex--
+  },
+  navigateForward(state) {
     state.currentIndex++
   },
+}
 
-  goPreviousPage(state, routeName) {
-    state.currentIndex--
+export const getters = {
+  getCurrentPage(state) {
+    return state.pagesVisited[state.currentIndex]
+  },
+  hasPrevPage(state) {
+    return state.currentIndex > 0
+  },
+  hasNextPage(state) {
+    return state.pagesVisited.length > state.currentIndex + 1
   },
 }

@@ -42,7 +42,7 @@ export default {
     },
   },
   beforeRouteEnter(to, from, next) {
-    console.log('FROM ' + from)
+    console.log('FROMM ' + from)
   },
 
   scrollToTop: true,

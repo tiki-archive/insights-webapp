@@ -7,13 +7,13 @@
       />
     </span>
 
-    <nuxt-link class="submitButton" to="/home">
+    <nuxt-link class="purpleButton" to="/home">
       <span>Log In</span>
     </nuxt-link>
 
     <span class="otherAction">
       Don't have an account?
-      <nuxt-link class="otherActionLink" to="/login">Sign up</nuxt-link>.
+      <nuxt-link class="otherActionLink" to="/register">Sign up</nuxt-link>.
     </span>
   </div>
 </template>
@@ -34,4 +34,19 @@ export default {
   flex-direction: column
 
   margin: auto auto
+
+.otherAction
+  font-size: 1rem
+
+  font-weight: 400
+  letter-spacing: 0px
+
+  text-align: center
+
+.otherActionLink
+  color: $tiki-purple
+  text-decoration: underline
+
+  &:hover
+    color: $tiki-pink
 </style>

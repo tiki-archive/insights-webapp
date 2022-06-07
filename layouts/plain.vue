@@ -14,12 +14,6 @@ export default {
 @import "assets/styles/theme"
 @import "assets/styles/mixins"
 
-body
-  margin: 0
-  font-family: $font-family-nunito-sans
-
-  overflow: visible
-
 .plainPage
   width: 100%
 

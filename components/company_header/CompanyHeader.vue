@@ -83,8 +83,6 @@ export default {
   border: 1px solid rgba(240, 240, 240, 0.5)
   border-radius: 8px
 
-  &:hover
+  &:hover, &.companyFollowing
     border: 1px solid white
-
-.companyFollowing
 </style>
