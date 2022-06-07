@@ -122,6 +122,9 @@ export default {
 .sidebarLogo
   max-height: 38px
 
+.tiki_logo
+  fill: white
+
 .sidebarSectionPadded
   padding: 24px 24px 0 24px
 

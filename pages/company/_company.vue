@@ -1,6 +1,11 @@
 <template>
   <div class="pageContainer">
-    <company-header name="Dr Martens" :monthly_users="'103,301'" />
+    <company-header
+      name="Dr Martens"
+      :monthly_users="'103,301'"
+      :following="this.following"
+      @setFollowing="setFollowing"
+    />
 
     <div class="mainContentContainer">
       <div class="searchResultsContainer">
@@ -87,22 +92,24 @@ export default {
   data() {
     return {
       slug: this.$route.params.company,
+      following: false,
     }
+  },
+  methods: {
+    setFollowing(following) {
+      console.log('SET FOLLOWING ' + following)
+      this.following = following
+    },
   },
 }
 </script>
 
-<style scoped lang="sass">
+<style lang="sass">
 @import "assets/styles/theme"
-
-.pageContainer
-  height: 100vh
 
 .mainContentContainer
   margin: auto 32px
   padding-top: 30px
-
-  box-sizing: border-box
 
 .searchResultsContainer
   display: grid

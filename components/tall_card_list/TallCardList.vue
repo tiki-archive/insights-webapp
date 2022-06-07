@@ -7,7 +7,6 @@
         :title="item.title"
         :description="item.description"
         :source="item.source"
-        class="card"
       />
     </div>
   </div>
@@ -90,7 +89,6 @@ export default {
 
 <style scoped lang="sass">
 @import "assets/styles/theme"
-
 .tallCardGrid
   display: grid
 

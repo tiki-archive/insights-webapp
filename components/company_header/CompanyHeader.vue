@@ -9,7 +9,12 @@
       <span>
         <span class="companyUsers">{{ monthly_users }} monthly users</span>
 
-        <button class="companyFollow">FOLLOW</button>
+        <button
+          :class="'companyFollow ' + [this.following ? 'companyFollowing' : '']"
+          @click="toggleFollowing()"
+        >
+          {{ following ? 'FOLLOWING' : 'FOLLOW' }}
+        </button>
       </span>
     </span>
   </div>
@@ -17,7 +22,12 @@
 
 <script>
 export default {
-  props: ['name', 'monthly_users'],
+  props: ['name', 'monthly_users', 'following'],
+  methods: {
+    toggleFollowing() {
+      this.$emit('setFollowing', !this.following)
+    },
+  },
 }
 </script>
 
@@ -75,4 +85,6 @@ export default {
 
   &:hover
     border: 1px solid white
+
+.companyFollowing
 </style>

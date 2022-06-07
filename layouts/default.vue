@@ -1,10 +1,10 @@
 <template>
-  <div class="page">
-    <span class="sideContainer">
+  <div class="defaultPage">
+    <span class="sideContainer pcOnly">
       <sidebar />
     </span>
 
-    <span class="mainContainer">
+    <span class="mainContainer pcOnly">
       <!-- This feels absolutely disgusting but I haven't found a nicer way
           I think the alternative is moving nav bar into individual pages or
           having the search bar separate from nav. The ladder would be odd with
@@ -17,13 +17,19 @@
 
       <Nuxt id="nuxt" />
     </span>
+
+    <span class="phoneOnly">
+      <notify-use-desktop />
+    </span>
   </div>
 </template>
 
 <script>
+import NotifyUseDesktop from '~/components/notify_use_desktop/NotifyUseDesktop.vue'
 import Sidebar from '~/components/sidebar/Sidebar.vue'
+
 export default {
-  components: { Sidebar },
+  components: { Sidebar, NotifyUseDesktop },
   name: 'DefaultLayout',
   data() {
     return {
@@ -34,6 +40,9 @@ export default {
     enableSearch() {
       this.searchEnabled = true
     },
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log('FROM ' + from)
   },
 
   scrollToTop: true,
@@ -50,7 +59,7 @@ body
 
   overflow: hidden
 
-.page
+.defaultPage
   width: 100%
 
   height: 100vh
@@ -82,4 +91,20 @@ body
 
 ::-webkit-scrollbar-thumb
   background-color: rgb(179, 179, 179)
+
+.phoneOnly
+  visibility: hidden
+  display: none
+
+.pcOnly
+  visibility: visible
+
+@include for-small-screen
+  .phoneOnly
+    visibility: visible
+    display: flex
+
+  .pcOnly
+    visibility: hidden
+    display: none
 </style>

@@ -1,6 +1,6 @@
 <template>
   <ul class="sidebarNavItemContainer">
-    <li v-for="item in dashboards" :key="item.name">
+    <li v-for="(item, index) in dashboards" :key="index">
       <NuxtLink
         :class="[
           $nuxt.$route.path == item.destination

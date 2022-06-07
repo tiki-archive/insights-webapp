@@ -1,18 +1,16 @@
 <template>
   <div class="navbar" id="navbar">
     <span class="navArrowContainer">
-      <button
-        :class="
-          'navArrow' +
-          [1 == 0 /* TODO: IMPLEMENT BACK ARROW */ ? ' active' : '']
-        "
-      >
+      <button :class="'navArrow' + [hasPrevPage() ? ' active' : '']">
         <utils-svg-cmp class="arrowIcon" name="icon_back_arrow" />
       </button>
+      <router-link to="/">
+        {{ this.$store.state.navigation }}
+      </router-link>
       <button
         :class="
           'navArrow' +
-          [1 == 1 /* TODO: IMPLEMENT FORWARD ARROW */ ? ' active' : '']
+          [this.$store.state.navigation.hasNextPage ? ' active' : '']
         "
       >
         <utils-svg-cmp class="arrowIcon" name="icon_forward_arrow" />
@@ -47,12 +45,32 @@ export default {
         }
       }
     },
+    hasPrevPage() {
+      console.log('HAS PREV PAGE')
+      console.log(this.$store.state.currentIndex > 0)
+      return this.$store.state.currentIndex > 0
+    },
+    hasNextPage() {
+      return (
+        this.$store.state.pagesVisited.length >
+        this.$store.state.currentIndex + 1
+      )
+    },
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll, true)
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll, true)
+  },
+  data() {
+    return {
+      path: '/',
+    }
+  },
+  created() {
+    console.log('HELLO')
+    console.log(this.$store.state)
   },
 }
 </script>

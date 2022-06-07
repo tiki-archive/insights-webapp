@@ -4,7 +4,7 @@
 
     <div class="searchResultsContainer">
       <span class="topResult">
-        <h2 class="titleText">Top result {{ slug }}</h2>
+        <h2 class="titleText">Top result {{ searchTerm }}</h2>
 
         <top-result-card
           title="Global Boot Market"
@@ -50,7 +50,7 @@
           </NuxtLink>
         </span>
 
-        <tall-card-list />
+        <tall-card-list class="testTall" />
       </span>
 
       <span class="gridRow">

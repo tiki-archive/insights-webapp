@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
+<style lang="sass">
 @import "assets/styles/theme"
 
 .pageContainer
