@@ -1,7 +1,7 @@
 <template>
   <ul class="sidebarNavItemContainer">
     <li v-for="(item, index) in dashboards" :key="index">
-      <NuxtLink
+      <TrackedNuxtLink
         :class="[
           $nuxt.$route.path == item.destination
             ? 'navLink currentlySelected'
@@ -10,7 +10,7 @@
         :to="item.destination"
       >
         {{ item.name }}
-      </NuxtLink>
+      </TrackedNuxtLink>
     </li>
   </ul>
 </template>

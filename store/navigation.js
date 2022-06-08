@@ -1,19 +1,22 @@
 export const state = () => ({
   pagesVisited: [],
-  currentIndex: 0,
+  currentIndex: -1,
 })
 
 export const mutations = {
-  visitedPage(state, routeName) {
+  visitedPage(state, route) {
+    // don't stack the same page multiple times in history
+    if (state.pagesVisited[state.currentIndex] === route) return
+
     // remove all forward history if they go down a different path
     if (state.pagesVisited.length > state.currentIndex + 1) {
       state.pagesVisited.splice(
-        state.currentIndex,
+        state.currentIndex + 1,
         state.pagesVisited.length,
-        routeName
+        route
       )
     } else {
-      state.pagesVisited.push(routeName)
+      state.pagesVisited.push(route)
     }
 
     state.currentIndex++
@@ -23,6 +26,10 @@ export const mutations = {
   },
   navigateForward(state) {
     state.currentIndex++
+  },
+  clearNavigation(state) {
+    state.currentIndex = -1
+    state.pagesVisited = []
   },
 }
 

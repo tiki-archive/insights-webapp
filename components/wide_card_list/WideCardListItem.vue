@@ -1,5 +1,8 @@
 <template>
-  <NuxtLink class="wideCard" :to="destination == null ? '' : destination">
+  <TrackedNuxtLink
+    class="wideCard"
+    :to="destination == null ? '' : destination"
+  >
     <div class="cardContent">
       <img class="cardImage" :src="source" />
 
@@ -8,7 +11,7 @@
         <p class="cardDesc">{{ description }}</p>
       </div>
     </div>
-  </NuxtLink>
+  </TrackedNuxtLink>
 </template>
 
 <script>

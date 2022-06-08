@@ -1,8 +1,8 @@
 <template>
   <div class="formPage">
-    <NuxtLink to="/" class="header">
+    <TrackedNuxtLink to="/" class="header">
       <utils-svg-cmp class="logo" name="tiki_logo" width="100%" />
-    </NuxtLink>
+    </TrackedNuxtLink>
 
     <span class="pageContent">
       <Nuxt id="nuxt" />

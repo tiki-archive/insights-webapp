@@ -12,17 +12,20 @@
         <span class="topResult">
           <span class="heading">
             <h2>
-              <NuxtLink
+              <TrackedNuxtLink
                 class="headingLink"
                 :to="'/search/insights/' + searchTerm"
               >
                 Popular
-              </NuxtLink>
+              </TrackedNuxtLink>
             </h2>
 
-            <NuxtLink class="seeAll" :to="'/search/insights/' + searchTerm">
+            <TrackedNuxtLink
+              class="seeAll"
+              :to="'/search/insights/' + searchTerm"
+            >
               SEE ALL
-            </NuxtLink>
+            </TrackedNuxtLink>
           </span>
 
           <insight-list />
@@ -31,12 +34,12 @@
         <span class="secondaryResult">
           <span class="heading">
             <h2>
-              <NuxtLink
+              <TrackedNuxtLink
                 class="headingLink"
                 :to="'/search/insights/' + searchTerm"
               >
                 You liked
-              </NuxtLink>
+              </TrackedNuxtLink>
             </h2>
           </span>
 
@@ -46,17 +49,20 @@
         <span class="gridRow">
           <span class="heading">
             <h2>
-              <NuxtLink
+              <TrackedNuxtLink
                 class="headingLink"
                 :to="'/search/companies/' + searchTerm"
               >
                 Companies
-              </NuxtLink>
+              </TrackedNuxtLink>
             </h2>
 
-            <NuxtLink class="seeAll" :to="'/search/companies/' + searchTerm">
+            <TrackedNuxtLink
+              class="seeAll"
+              :to="'/search/companies/' + searchTerm"
+            >
               SEE ALL
-            </NuxtLink>
+            </TrackedNuxtLink>
           </span>
 
           <tall-card-list />
@@ -65,17 +71,20 @@
         <span class="gridRow">
           <span class="heading">
             <h2>
-              <NuxtLink
+              <TrackedNuxtLink
                 class="headingLink"
                 :to="'/search/dashboard/' + searchTerm"
               >
                 Dashboards
-              </NuxtLink>
+              </TrackedNuxtLink>
             </h2>
 
-            <NuxtLink class="seeAll" :to="'/search/dashboard/' + searchTerm">
+            <TrackedNuxtLink
+              class="seeAll"
+              :to="'/search/dashboard/' + searchTerm"
+            >
               SEE ALL
-            </NuxtLink>
+            </TrackedNuxtLink>
           </span>
 
           <tall-card-list />

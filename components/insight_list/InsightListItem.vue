@@ -1,5 +1,8 @@
 <template>
-  <NuxtLink class="insightCard" :to="destination == null ? '' : destination">
+  <TrackedNuxtLink
+    class="insightCard"
+    :to="destination == null ? '' : destination"
+  >
     <utils-svg-cmp class="insightImage" :name="icon" />
 
     <span class="insightInfo">
@@ -19,7 +22,7 @@
         this insight.
       </span>
     </div>
-  </NuxtLink>
+  </TrackedNuxtLink>
 </template>
 
 <script>
