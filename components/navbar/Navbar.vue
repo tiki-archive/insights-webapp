@@ -17,7 +17,7 @@ export default {
   props: ['name', 'icon', 'showSearch'],
   methods: {
     onScroll(event) {
-      if (event.target.className === 'mainContainer') {
+      if (event.target.className.startsWith('mainContainer')) {
         this.pos = event.target.scrollTop
         if (event.target.scrollTop < 64) {
           const opa = event.target.scrollTop / 64.0

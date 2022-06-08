@@ -4,10 +4,10 @@
     :style="'background: linear-gradient(180deg, rgba(68, 35, 75, 0) 0%, #44234b 100%) no-repeat, url(\'https://i.gyazo.com/24c74c14a569513e17d30a0272398e71.png\') no-repeat'"
   >
     <span class="headerInfo">
-      <span class="companyLabel">Company</span>
+      <span class="">Company</span>
       <span class="companyName">{{ name }}</span>
       <span>
-        <span class="companyUsers">{{ monthly_users }} monthly users</span>
+        <span class="">{{ monthly_users }} monthly users</span>
 
         <button
           :class="'companyFollow ' + [this.following ? 'companyFollowing' : '']"
@@ -51,7 +51,6 @@ export default {
 
   margin: auto auto 48px 32px
 
-.companyLabel
   color: white
   font-size: 1rem
 
@@ -62,10 +61,6 @@ export default {
   padding: 8px 0
 
   font-weight: 800
-
-.companyUsers
-  color: white
-  font-size: 1rem
 
 .companyFollow
   color: white

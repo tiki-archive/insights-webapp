@@ -18,7 +18,7 @@ export default {
   width: 100%
 
   overflow-x: hidden
-  overflow-y: scroll
+  overflow-y: overlay
 
   display: flex
 

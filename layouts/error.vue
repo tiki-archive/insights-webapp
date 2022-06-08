@@ -2,10 +2,11 @@
   <div class="pageContainer">
     <utils-svg-cmp class="logo" name="tiki_logo" />
 
-    <span v-if="error.statusCode === 404">
-      <h1>Page not found</h1>
-      <span class="subTitle"
-        >We could not find the page you were looking for.</span
+    <span class="errorContainer">
+      <h1>{{ error.message }}</h1>
+      <span v-if="error.details" class="details">{{ error.details }}</span>
+      <span v-if="error.statusCode === 404" class="details"
+        >We could not find the page you are looking for.</span
       >
     </span>
 
@@ -15,7 +16,9 @@
 
     <div class="curve"></div>
 
-    <utils-svg-cmp class="decoration" name="tiki_guy_eating_pizza" />
+    <span class="decoration">
+      <utils-svg-cmp name="tiki_guy_eating_pizza" />
+    </span>
   </div>
 </template>
 
@@ -58,20 +61,11 @@ export default {
 .tiki_logo
   fill: $tiki-purple
 
-h1
-  color: black
-
-  margin: 20px auto 16px
-
-  text-align: center
-
-  font-size: 2rem
-  font-weight: 800
-
-  letter-spacing: -0.04em
-
-.subTitle
-  color: black
+.errorContainer
+  display: flex
+  flex-direction: column
+.details
+  margin: auto
 
 .homeButton
   padding: 16px 32px
@@ -89,8 +83,28 @@ h1
     transform: scale(1.05)
 
 .decoration
-  max-width: 25vw
+  height: max(27vw, 270px)
+  width: max(20vw, 180px)
   position: fixed
   bottom: 0
   right: 0
+
+.decoration > svg
+  position: absolute
+  right: 0
+  bottom: 0
+  height: 100%
+  width: 100%
+
+h1
+  color: black
+
+  margin: 20px auto 16px
+
+  text-align: center
+
+  font-size: 2rem
+  font-weight: 800
+
+  letter-spacing: -0.04em
 </style>
