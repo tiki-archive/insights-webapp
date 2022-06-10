@@ -1,8 +1,5 @@
 <template>
-  <TrackedNuxtLink
-    class="tallCard"
-    :to="destination == null ? '' : destination"
-  >
+  <NuxtLink class="tallCard" :to="destination == null ? '' : destination">
     <div class="cardContent">
       <img class="cardImage" :src="source" />
 
@@ -11,7 +8,7 @@
         <p class="cardDesc">{{ description }}</p>
       </div>
     </div>
-  </TrackedNuxtLink>
+  </NuxtLink>
 </template>
 
 <script>

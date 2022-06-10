@@ -36,24 +36,25 @@ export default {
     },
     // When a page is loaded we determine if it is new or part of page history
     updateHistory() {
-      // Get the page's absolute position in stack
-      let position = history.state.absPos
+      // Get the current page's absolute position in stack
+      let currentPosition = history.state.absPos
 
-      if (position === undefined) {
+      if (currentPosition === undefined) {
         // If it doesn't have a position, it is new -> put it on top of stack
-        position = Number(sessionStorage.getItem('positionLastShown')) + 1
+        currentPosition = Number(sessionStorage.getItem('lastPosition')) + 1
 
-        sessionStorage.setItem('historyLength', position)
+        sessionStorage.setItem('historyLength', currentPosition)
 
         // (1) Stamp the entry with its own position in the stack
-        history.replaceState({ absPos: position }, /* no title */ '')
+        history.replaceState({ absPos: currentPosition }, /* no title */ '')
       }
 
       // (2) Keep track of the last position shown
-      sessionStorage.setItem('positionLastShown', position)
+      sessionStorage.setItem('lastPosition', currentPosition)
 
-      this.hasPrevPage = position > 1
-      this.hasNextPage = position < sessionStorage.getItem('historyLength')
+      this.hasPrevPage = currentPosition > 1
+      this.hasNextPage =
+        currentPosition < sessionStorage.getItem('historyLength')
     },
   },
   mounted() {

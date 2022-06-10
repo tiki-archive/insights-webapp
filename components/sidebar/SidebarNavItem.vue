@@ -1,5 +1,5 @@
 <template>
-  <TrackedNuxtLink
+  <NuxtLink
     class="sidebarNavItemContainer"
     :to="destination"
     :class="[$nuxt.$route.path == destination ? 'currentlySelected' : '']"
@@ -9,15 +9,14 @@
       :src="require(`~/assets/images/svg/${icon}.svg`)"
     />
     <span class="navText">{{ text }}</span>
-  </TrackedNuxtLink>
+  </NuxtLink>
 </template>
 
 <script>
 import InlineSvg from 'vue-inline-svg'
-import TrackedNuxtLink from '../tracked_nuxt_link/TrackedNuxtLink.vue'
 
 export default {
-  components: { InlineSvg, TrackedNuxtLink },
+  components: { InlineSvg },
   props: ['text', 'icon', 'destination'],
 }
 </script>

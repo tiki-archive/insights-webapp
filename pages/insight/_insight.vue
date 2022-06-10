@@ -21,20 +21,17 @@
       <span>
         <span class="heading">
           <h2>
-            <TrackedNuxtLink
+            <NuxtLink
               class="headingLink"
               :to="'/search/dashboard/' + searchTerm"
             >
               Recommended Insights
-            </TrackedNuxtLink>
+            </NuxtLink>
           </h2>
 
-          <TrackedNuxtLink
-            class="seeAll"
-            :to="'/search/dashboard/' + searchTerm"
-          >
+          <NuxtLink class="seeAll" :to="'/search/dashboard/' + searchTerm">
             SEE ALL
-          </TrackedNuxtLink>
+          </NuxtLink>
         </span>
 
         <wide-card-list />
@@ -51,7 +48,21 @@ export default {
   data() {
     return {
       slug: this.$route.params.insight,
+      filters: this.$route.query.location,
     }
+  },
+  methods: {
+    filterProduct() {
+      this.$router.push({
+        query: Object.assign({}, this.$route.query, {
+          location: 'USA',
+          time: '1week',
+        }),
+      })
+    },
+  },
+  created() {
+    console.log(this.$route.query)
   },
 }
 </script>

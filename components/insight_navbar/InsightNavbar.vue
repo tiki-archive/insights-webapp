@@ -8,14 +8,16 @@
       <utils-svg-cmp name="icon_add_insight_to_pipeline" />
     </button>
 
-    <button></button>
+    <insight-navbar-filter icon="icon_filter_date" text="Last 30 days" />
+    <insight-navbar-filter icon="icon_location_pin" text="USA" />
   </div>
 </template>
 
 <script>
 import UtilsSvgCmp from '../utils/UtilsSvgCmp.vue'
+import InsightNavbarFilter from './InsightNavbarFilter.vue'
 export default {
-  components: { UtilsSvgCmp },
+  components: { UtilsSvgCmp, InsightNavbarFilter },
   props: [],
   methods: {
     addToDashboard() {
@@ -36,8 +38,7 @@ export default {
   display: flex
   gap: 16px
 
-.svgg
-  fill-opacity: 1.0
+  align-items: center
 
 button
   border: 0

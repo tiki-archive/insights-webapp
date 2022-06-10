@@ -41,9 +41,6 @@ export default {
       this.searchEnabled = true
     },
   },
-  beforeRouteEnter(to, from, next) {
-    console.log('FROMM ' + from)
-  },
 
   scrollToTop: true,
 }

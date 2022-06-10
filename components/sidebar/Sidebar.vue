@@ -3,9 +3,9 @@
     <!-- The top elements of the sidebar which are the same size regardless of device -->
     <div>
       <div class="sidebarSectionPadded sidebarLogoContainer">
-        <TrackedNuxtLink to="/">
+        <NuxtLink to="/">
           <utils-svg-cmp class="sidebarLogo" name="tiki_logo" />
-        </TrackedNuxtLink>
+        </NuxtLink>
       </div>
 
       <!-- Home, Search, Library -->

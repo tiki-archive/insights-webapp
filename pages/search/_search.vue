@@ -18,20 +18,17 @@
       <span class="secondaryResult">
         <span class="heading">
           <h2>
-            <TrackedNuxtLink
+            <NuxtLink
               class="headingLink"
               :to="'/search/insights/' + searchTerm"
             >
               Insights
-            </TrackedNuxtLink>
+            </NuxtLink>
           </h2>
 
-          <TrackedNuxtLink
-            class="seeAll"
-            :to="'/search/insights/' + searchTerm"
-          >
+          <NuxtLink class="seeAll" :to="'/search/insights/' + searchTerm">
             SEE ALL
-          </TrackedNuxtLink>
+          </NuxtLink>
         </span>
 
         <insight-list />
@@ -40,20 +37,17 @@
       <span class="gridRow">
         <span class="heading">
           <h2>
-            <TrackedNuxtLink
+            <NuxtLink
               class="headingLink"
               :to="'/search/companies/' + searchTerm"
             >
               Companies
-            </TrackedNuxtLink>
+            </NuxtLink>
           </h2>
 
-          <TrackedNuxtLink
-            class="seeAll"
-            :to="'/search/companies/' + searchTerm"
-          >
+          <NuxtLink class="seeAll" :to="'/search/companies/' + searchTerm">
             SEE ALL
-          </TrackedNuxtLink>
+          </NuxtLink>
         </span>
 
         <tall-card-list class="testTall" />
@@ -62,20 +56,17 @@
       <span class="gridRow">
         <span class="heading">
           <h2>
-            <TrackedNuxtLink
+            <NuxtLink
               class="headingLink"
               :to="'/search/dashboard/' + searchTerm"
             >
               Dashboards
-            </TrackedNuxtLink>
+            </NuxtLink>
           </h2>
 
-          <TrackedNuxtLink
-            class="seeAll"
-            :to="'/search/dashboard/' + searchTerm"
-          >
+          <NuxtLink class="seeAll" :to="'/search/dashboard/' + searchTerm">
             SEE ALL
-          </TrackedNuxtLink>
+          </NuxtLink>
         </span>
 
         <tall-card-list />
