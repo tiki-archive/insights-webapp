@@ -1,9 +1,10 @@
 <template>
   <error
     :error="{
-      statusCode: -1,
-      message: 'This site is only available on desktop.',
-      details: 'Mobile support will be added at a later date.',
+      statusCode: 115,
+      message: 'Your screen is too small.',
+      details:
+        'You must use a device with a bigger screen like a tablet, laptop, or desktop. Support for smaller screens will be added at a later date.',
     }"
   />
 </template>

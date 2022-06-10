@@ -10,7 +10,11 @@
       >
     </span>
 
-    <nuxt-link class="homeButton" to="/">
+    <nuxt-link
+      v-if="error.statusCode >= 400 && error.statusCode <= 600"
+      class="purpleButton"
+      to="/"
+    >
       <span>Home</span>
     </nuxt-link>
 
@@ -65,26 +69,12 @@ export default {
   display: flex
   flex-direction: column
 .details
-  margin: auto
-
-.homeButton
-  padding: 16px 32px
-  background-color: $tiki-purple
-  border-radius: 500px
-
-  color: white
-  text-decoration: none
-
-  margin: 20px auto
-
-  transition: all .1s ease-in-out
-
-  &:hover
-    transform: scale(1.05)
+  margin: auto 12px
+  text-align: center
 
 .decoration
-  height: max(27vw, 270px)
-  width: max(20vw, 180px)
+  height: max(27vw, 235px)
+  width: max(20vw, 150px)
   position: fixed
   bottom: 0
   right: 0

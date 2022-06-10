@@ -1,5 +1,5 @@
 <template>
-  <form class="searchBarContainer">
+  <form class="searchBarContainer" @submit.prevent="">
     <input
       class="searchBar"
       type="search"
@@ -22,38 +22,18 @@ export default {
       searchTerm: this.$route.params.search,
     }
   },
-  methods: {
-    submit() {
-      this.$router.push({ path: 'search', query: { search: 'gello' } })
-    },
-    onScroll(event) {
-      if (event.target.className === 'mainContainer') {
-        this.pos = event.target.scrollTop
-        if (event.target.scrollTop < 64) {
-          const opa = event.target.scrollTop / 64.0
-          document.getElementById('navbar').style.backgroundColor =
-            'rgb(64, 44, 67, ' + opa + ')'
-        } else {
-          document.getElementById('navbar').style.backgroundColor =
-            'rgb(64, 44, 67)'
-        }
-      }
-    },
-  },
   watch: {
     searchTerm(newTerm, prevTerm) {
       // this.$router.push({
       //   path: '/search/' + newTerm,
       // })
 
-      history.pushState({}, null, '/search/' + newTerm)
+      console.log('REPL STATE')
+      console.log(history.state)
+      history.replaceState(history.state, null, '/search/' + newTerm)
+
+      console.log(history.state)
     },
-  },
-  mounted() {
-    window.addEventListener('scroll', this.onScroll, true)
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.onScroll, true)
   },
 }
 </script>

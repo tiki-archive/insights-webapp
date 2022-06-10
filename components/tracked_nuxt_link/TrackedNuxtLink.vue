@@ -14,7 +14,7 @@ export default {
   props: ['to'],
   methods: {
     clickedLink() {
-      this.$store.commit('navigation/visitedPage', this.to)
+      // this.$store.commit('navigation/visitedPage', this.to)
     },
   },
 }

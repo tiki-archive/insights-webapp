@@ -1,13 +1,15 @@
 <template>
   <div class="insightHeader">
-    <span class="headerImageContainer">
-      <img class="headerImage" v-if="validURL(this.icon)" :src="this.icon" />
-      <utils-svg-cmp class="headerImage" v-else :name="this.icon" />
-    </span>
-    <span class="headerInfo">
-      <span class="insightLabel">Insight</span>
-      <span class="insightName">{{ name }}</span>
-      <span class="insightSource">{{ source }}</span>
+    <span class="insightHeaderInfo">
+      <span class="headerImageContainer">
+        <img class="headerImage" v-if="validURL(this.icon)" :src="this.icon" />
+        <utils-svg-cmp class="headerImage" v-else :name="this.icon" />
+      </span>
+      <span class="headerInfo">
+        <span class="insightLabel">Insight</span>
+        <span class="insightName">{{ name }}</span>
+        <span class="insightSource">{{ source }}</span>
+      </span>
     </span>
   </div>
 </template>
@@ -40,19 +42,25 @@ export default {
 <style scoped lang="sass">
 @import "assets/styles/theme"
 
-.insightHeader
-  padding: 0 32px 24px
-
-  width: 100%
-  height: 316px
-
-  box-sizing: border-box !important
-
+.insightHeaderInfo
   display: flex
-
   align-items: flex-end
 
   gap: 24px
+
+.insightHeader
+  padding: 0 32px 32px
+
+  width: 100%
+  height: 320px
+
+  box-sizing: border-box !important
+
+  flex-direction: column
+
+  display: flex
+  justify-content: flex-end
+
 
 .headerImageContainer
   width: 200px !important

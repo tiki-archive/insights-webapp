@@ -1,13 +1,13 @@
 <template>
   <span class="navArrowContainer">
     <button
-      :class="'navArrow' + [hasPrevPage() ? ' active' : '']"
+      :class="'navArrow' + [hasPrevPage ? ' active' : '']"
       @click="navigateBack"
     >
       <utils-svg-cmp class="arrowIcon" name="icon_back_arrow" />
     </button>
     <button
-      :class="'navArrow' + [hasNextPage() ? ' active' : '']"
+      :class="'navArrow' + [hasNextPage ? ' active' : '']"
       @click="navigateForward"
     >
       <utils-svg-cmp class="arrowIcon" name="icon_forward_arrow" />
@@ -21,36 +21,48 @@ export default {
   components: { UtilsSvgCmp },
   name: 'NavigationArrows',
   props: [],
+  data() {
+    return {
+      hasPrevPage: false,
+      hasNextPage: false,
+    }
+  },
   methods: {
-    hasPrevPage() {
-      return this.$store.getters['navigation/hasPrevPage']
-    },
-    hasNextPage() {
-      return this.$store.getters['navigation/hasNextPage']
-    },
     navigateBack() {
-      if (!this.hasPrevPage()) return
-
-      this.$store.commit('navigation/navigateBack')
-      this.$router.push(this.$store.getters['navigation/getCurrentPage'])
+      if (this.hasPrevPage) history.back()
     },
     navigateForward() {
-      if (!this.hasNextPage()) return
+      if (this.hasNextPage) history.forward()
+    },
+    // When a page is loaded we determine if it is new or part of page history
+    updateHistory() {
+      // Get the page's absolute position in stack
+      let position = history.state.absPos
 
-      this.$store.commit('navigation/navigateForward')
-      this.$router.push(this.$store.getters['navigation/getCurrentPage'])
+      if (position === undefined) {
+        // If it doesn't have a position, it is new -> put it on top of stack
+        position = Number(sessionStorage.getItem('positionLastShown')) + 1
+
+        sessionStorage.setItem('historyLength', position)
+
+        // (1) Stamp the entry with its own position in the stack
+        history.replaceState({ absPos: position }, /* no title */ '')
+      }
+
+      // (2) Keep track of the last position shown
+      sessionStorage.setItem('positionLastShown', position)
+
+      this.hasPrevPage = position > 1
+      this.hasNextPage = position < sessionStorage.getItem('historyLength')
     },
   },
   mounted() {
-    // when browser starts going between pages with arrows
-    // we can't know where we should be, so we clear nav
-    window.onpopstate = function (event) {
-      window.$nuxt.$store.commit('navigation/clearNavigation')
-    }
+    this.updateHistory()
   },
-  created() {
-    // we need to put the first page into nav history
-    this.$store.commit('navigation/visitedPage', this.$route.path)
+  watch: {
+    $route() {
+      this.updateHistory()
+    },
   },
 }
 </script>

@@ -7,96 +7,47 @@
     />
 
     <div class="mainContentContainer">
-      <div class="searchResultsContainer">
-        <span class="topResult">
-          <span class="heading">
-            <h2>
-              <TrackedNuxtLink
-                class="headingLink"
-                :to="'/search/insights/' + searchTerm"
-              >
-                Popular
-              </TrackedNuxtLink>
-            </h2>
+      <insight-navbar />
 
+      <span>
+        <img src="https://gyazo.com/18cda419411923c058c8ddbf0a703f9b.png" />
+      </span>
+
+      <TitleDescription
+        title="Description"
+        description="The Customer Location insight details the number of customers purchasing items from the brand. The insight may be helpful in determining target markets, competitive opportunities, or optimizing marketing spend."
+      />
+
+      <span>
+        <span class="heading">
+          <h2>
             <TrackedNuxtLink
-              class="seeAll"
-              :to="'/search/insights/' + searchTerm"
-            >
-              SEE ALL
-            </TrackedNuxtLink>
-          </span>
-
-          <insight-list />
-        </span>
-
-        <span class="secondaryResult">
-          <span class="heading">
-            <h2>
-              <TrackedNuxtLink
-                class="headingLink"
-                :to="'/search/insights/' + searchTerm"
-              >
-                You liked
-              </TrackedNuxtLink>
-            </h2>
-          </span>
-
-          <insight-list :number="false" :confidence_levels="false" />
-        </span>
-
-        <span class="gridRow">
-          <span class="heading">
-            <h2>
-              <TrackedNuxtLink
-                class="headingLink"
-                :to="'/search/companies/' + searchTerm"
-              >
-                Companies
-              </TrackedNuxtLink>
-            </h2>
-
-            <TrackedNuxtLink
-              class="seeAll"
-              :to="'/search/companies/' + searchTerm"
-            >
-              SEE ALL
-            </TrackedNuxtLink>
-          </span>
-
-          <tall-card-list />
-        </span>
-
-        <span class="gridRow">
-          <span class="heading">
-            <h2>
-              <TrackedNuxtLink
-                class="headingLink"
-                :to="'/search/dashboard/' + searchTerm"
-              >
-                Dashboards
-              </TrackedNuxtLink>
-            </h2>
-
-            <TrackedNuxtLink
-              class="seeAll"
+              class="headingLink"
               :to="'/search/dashboard/' + searchTerm"
             >
-              SEE ALL
+              Recommended Insights
             </TrackedNuxtLink>
-          </span>
+          </h2>
 
-          <tall-card-list />
+          <TrackedNuxtLink
+            class="seeAll"
+            :to="'/search/dashboard/' + searchTerm"
+          >
+            SEE ALL
+          </TrackedNuxtLink>
         </span>
-      </div>
+
+        <wide-card-list />
+      </span>
     </div>
   </div>
 </template>
 
 <script>
 import InsightHeader from '~/components/insight_header/InsightHeader.vue'
+import TitleDescription from '~/components/title_description/TitleDescription.vue'
 export default {
-  components: { InsightHeader },
+  components: { InsightHeader, TitleDescription },
   data() {
     return {
       slug: this.$route.params.insight,
@@ -109,27 +60,13 @@ export default {
 @import "assets/styles/theme"
 
 .mainContentContainer
-  margin: auto 32px
-  padding-top: 30px
+  margin: 0 32px
 
-.searchResultsContainer
-  display: grid
+  display: flex
+  flex-wrap: wrap
+  flex-direction: column
 
-  grid-template: 332px/repeat(auto-fill,minmax(max(180px,10%),1fr))
-  grid-column-gap: 24px
-  grid-row-gap: min(2.2vh, 22px)
-
-  justify-content: space-between
-
-.topResult
-  grid-column: 1 / 4
-  height: 260px
-
-.secondaryResult
-  grid-column: span 2 / -1
-
-.gridRow
-   grid-column: 1 / -1
+  gap: 32px
 
 .heading
   display: flex
@@ -137,6 +74,9 @@ export default {
 h2
   margin: 16px 0
 
+img
+  margin: auto
+  display: flex
 .seeAll
   color: $see-all-text
   font-weight: 800
