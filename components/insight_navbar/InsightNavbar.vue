@@ -1,10 +1,10 @@
 <template>
   <div class="insightNavbar">
-    <button>
+    <button @click="addToDashboard">
       <utils-svg-cmp name="icon_add_insight_to_dashboard" />
     </button>
 
-    <button>
+    <button @click="addToPipeline">
       <utils-svg-cmp name="icon_add_insight_to_pipeline" />
     </button>
 
@@ -21,10 +21,10 @@ export default {
   props: [],
   methods: {
     addToDashboard() {
-      this.$emit('addToDashboard', !this.following)
+      this.$emit('addToDashboard')
     },
-    connectToData() {
-      this.$emit('connectToData', !this.following)
+    addToPipeline() {
+      this.$emit('addToPipeline')
     },
   },
 }

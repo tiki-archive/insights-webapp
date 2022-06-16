@@ -3,8 +3,8 @@
     <utils-svg-cmp class="insightImage" :name="icon" />
 
     <span class="insightInfo">
-      <span class="insightTitle">{{ name }}</span>
-      <span class="insightDescription">{{ description }}</span>
+      <span class="themeCardTitleText">{{ name }}</span>
+      <span class="themeCardDescText">{{ description }}</span>
     </span>
 
     <span class="insightConfidence" v-if="confidence_level != null"
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "assets/styles/theme"
+@import "assets/styles/theme/default"
 
 .insightCard
   height: 65px
@@ -46,29 +46,12 @@ export default {
 
 .insightInfo
   margin: auto 0
-  padding-left: 16px
+  padding-left: $page-col-gap
 
   display: flex
   flex-direction: column
-
-.insightTitle
-  color: white
-
-  font-size: 1rem
-  font-weight: 700
-
-  white-space: nowrap
-  overflow: hidden
-  text-overflow: ellipsis
-
-.insightDescription
-  color: $gray
-
-  font-size: .875rem
-  font-weight: 600
-
 .insightConfidence
-  color: $text-gray
+  color: $gray
 
   margin: auto 0 auto auto
 
@@ -78,7 +61,7 @@ export default {
 
 .questionMark
   margin: auto 0
-  color: $text-gray
+  color: $gray
   font-size: .75rem
   padding-bottom: .875rem
 

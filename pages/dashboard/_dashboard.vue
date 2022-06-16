@@ -1,13 +1,40 @@
 <template>
-  <div class="pageContainer">
-    <h1 class="titleText">I am a dashboard page for {{ slug }}</h1>
+  <div class="themeStandardPageContainer">
+    <span class="headerInfo">
+      <span class="themeHeaderLabel">Dashboard</span>
+      <span class="themeBigHeaderText">Our Competitors</span>
+    </span>
 
-    <insight-quick-view
-      title="Dr Martins"
-      description="Best Email Subject Lines"
-      source="https://gyazo.com/dd876436e6da92f755591429e050036a.png"
-      insightLink="test"
-    />
+    <section class="themeMultiContentSection">
+      <insight-quick-view
+        title="Dr Martins"
+        description="Best Email Subject Lines"
+        source="https://gyazo.com/dd876436e6da92f755591429e050036a.png"
+        insightLink="test"
+        class="insightChart"
+      />
+      <insight-quick-view
+        title="Dr Martins"
+        description="Best Email Subject Lines"
+        source="https://gyazo.com/dd876436e6da92f755591429e050036a.png"
+        insightLink="test"
+        class="insightChart"
+      />
+      <insight-quick-view
+        title="Dr Martins"
+        description="Best Email Subject Lines"
+        source="https://gyazo.com/dd876436e6da92f755591429e050036a.png"
+        insightLink="test"
+        class="insightChart"
+      />
+      <insight-quick-view
+        title="Dr Martins"
+        description="Best Email Subject Lines"
+        source="https://gyazo.com/dd876436e6da92f755591429e050036a.png"
+        insightLink="test"
+        class="insightChart"
+      />
+    </section>
   </div>
 </template>
 
@@ -24,14 +51,16 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "assets/styles/theme"
+@import "assets/styles/theme/default"
+.headerInfo
+  display: flex
+  flex-direction: column
 
-.pageContainer
-  margin: auto 32px
-  padding-top: 1.75vh
-  overflow: hidden
-  position: relative
+.themeMultiContentSection
+  display: grid
 
-.titleText
-  margin: 70px 0 16px
+  grid-template: auto/repeat(auto-fill,minmax(max(320px,34%),1fr))
+
+  grid-column-gap: $page-col-gap
+  grid-row-gap: $page-row-gap
 </style>

@@ -1,32 +1,29 @@
 <template>
   <full-page-popup @clickedOut="clickedOut">
-    <span class="insightAddToDashboard">
+    <span class="insightAddToPipeline">
       <section>
         <span class="headerText">
-          <span>Add to dashboard</span>
+          <span>Connect to data</span>
 
           <span class="tooltip">
             <utils-svg-cmp class="questionMark" name="icon_question_mark" />
 
             <span class="tooltiptext">
-              Dashboards are pages you can create to view multiple insights in
-              one handy place. Add this insight to a dashboard by selecting the
-              dashboard on the right.
+              Connect this insight to an external date pipeline to process it
+              yourself.
             </span>
           </span>
         </span>
-        <utils-svg-cmp name="add_insight_to_dashboard_graphic" />
+        <utils-svg-cmp name="add_insight_to_pipeline_graphic" />
       </section>
 
       <section>
-        <insight-add-to-dashboard-list
-          :dashboards="[
-            { name: 'Our Competitors' },
-            { name: 'Cross-sell / Up-sell' },
-            { name: 'Target demos' },
-            { name: 'Boots' },
-            { name: 'Tech Companies' },
-            { name: 'Big Chocolate' },
+        <insight-add-to-pipeline-list
+          :pipelines="[
+            { name: 'Tableau', icon: 'icon_pipeline_tableau' },
+            { name: 'Domo', icon: 'icon_pipeline_domo' },
+            { name: 'Looker', icon: 'icon_pipeline_looker' },
+            { name: 'API', icon: 'icon_pipeline_arrows' },
           ]"
         />
       </section>
@@ -37,11 +34,12 @@
 <script>
 import FullPagePopup from '../fullpage_popup/FullPagePopup.vue'
 import UtilsSvgCmp from '../utils/UtilsSvgCmp.vue'
-import InsightAddToDashboardList from './InsightAddToDashboardList.vue'
+import InsightAddToPipelineList from './InsightAddToPipelineList.vue'
+
 export default {
-  components: { FullPagePopup, UtilsSvgCmp, InsightAddToDashboardList },
-  name: 'InsightAddToDashboard',
-  props: ['insight', 'dashboards'],
+  components: { FullPagePopup, UtilsSvgCmp, InsightAddToPipelineList },
+  name: 'InsightAddToPipeline',
+  props: ['insight'],
   methods: {
     clickedOut() {
       this.$emit('clickedOut')
@@ -53,7 +51,7 @@ export default {
 <style scoped lang="sass">
 @import "assets/styles/theme/default"
 
-.insightAddToDashboard
+.insightAddToPipeline
   width: 100%
   height: 100%
 

@@ -7,7 +7,6 @@
         :title="item.title"
         :description="item.description"
         :source="item.source"
-        class="card"
       />
     </div>
   </div>
@@ -55,15 +54,14 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "assets/styles/theme"
+@import "assets/styles/theme/default"
 
 .wideCardGrid
   display: grid
 
-  grid-template: auto/repeat(auto-fill,minmax(max(320px,23%),1fr))
-  // auto/repeat(auto-fill,minmax(max(250px,32%),1fr))
-  grid-row-gap: min(2.2vh, 22px)
-  grid-column-gap: 24px
+  grid-template: auto/repeat(auto-fill,minmax(max(270px,23%),1fr))
+  grid-row-gap: $page-row-gap
+  grid-column-gap: $page-col-gap
 
   justify-content: space-between
 </style>

@@ -1,0 +1,192 @@
+/*
+ ** Color Definitions
+ */
+
+$navbar-height: 64px
+
+$text-gray: #DFD9E0
+
+$gray: #B3B3B3
+
+$see-all-text: #AFAFAF
+
+$tiki-purple: #27002E
+
+$tiki-pink: #B5006C
+$tiki-red: #C73000
+$tiki-orange: #E89933
+$tiki-blue: #00133F
+$tiki-black: #1C0000
+
+$yellow: #FFD225
+$red: #B5002B
+$orange: #FF521C
+$green: #00B272
+$blue: #0036B5
+$cyan: #8BFFF1
+
+$white: #FFFFFF
+$black: #000000
+
+$gray-1: #F0F0F0
+$gray-2: #D8D8D8
+$gray-3: #AFAFAF
+$gray-4: #8D8D8D
+$gray-5: #797979
+$gray-6: #545454
+
+/*
+ ** Font Definitions
+ */
+
+$font-family-koara: 'Koara', Arial, sans-serif
+$font-family-nunito-sans: 'Nunito Sans', Arial, sans-serif
+$font-family-courier: Courier, monospace
+
+/*
+ ** Card Definitions
+ */
+$navbar-height: 64px
+
+$card-border-radius: 4px
+$card-content-padding: 16px
+
+$page-col-gap: 24px
+$page-row-gap: 24px
+
+$page-section-padding: 16px
+
+$page-main-content-padding: 32px
+
+/*
+ ** Style overrides
+ */
+section
+    margin-bottom: $page-section-padding
+
+h1
+    color: white
+    font: $font-family-nunito-sans
+    font-weight: 800
+    font-size: 2rem
+    margin: 0 0 $page-section-padding
+h2
+    color: white
+    font: $font-family-nunito-sans
+    font-weight: 800
+    font-size: 1.5rem
+    margin: 0 0 $page-section-padding
+
+h3
+    color: white
+    font: $font-family-nunito-sans
+    font-weight: 800
+    font-size: 1.4rem
+    margin: 0
+
+/*
+ ** Card Definitions
+ */
+.themeStandardPageContainer
+    margin: calc($navbar-height + $page-row-gap) $page-main-content-padding
+    overflow: hidden
+
+    display: flex
+    flex-direction: column
+
+    gap: $page-row-gap
+
+.themeMultiContentSection
+    display: flex
+    flex-wrap: wrap
+    width: 100%
+
+    gap: $page-col-gap
+    row-gap: calc($page-row-gap + $page-section-padding)
+
+    > span
+        flex-grow: 1
+
+.themeCard
+    background: rgba(84, 84, 84, 0.25)
+    border-radius: $card-border-radius
+    text-decoration: none
+
+    &:hover
+        background: rgba(84, 84, 84, 0.4)
+
+/*
+ ** Font Definitions
+ */    
+.themeCardTitleText
+    color: white
+
+    margin: 0
+
+    font-weight: 700
+    font-size: 1rem
+    line-height: 1.5rem
+
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+.themeCardDescText
+    color: $gray
+    font-size: 0.875rem
+    line-height: 1rem
+    margin: 0
+
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+.themeSeeAllText
+    color: $see-all-text
+    font-weight: 800
+    font-size: .875rem
+    text-decoration: none
+
+    margin: auto 0 auto auto
+    padding-bottom: $page-section-padding
+
+    &:hover
+        text-decoration: underline
+
+.themeBigHeaderText
+    color: white
+    font-size: min(6rem, calc(6vw))
+    line-height: 6rem
+    padding: 8px 0
+
+    letter-spacing: -0.04em
+
+    font-weight: 800
+
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+
+.themeHeaderLabel
+    color: white
+    font-size: 1rem
+
+.themeHeaderSource
+    color: white
+    font-size: 1.375rem
+    font-weight: 600
+
+.purpleButton
+    padding: 16px 48px
+    background-color: $tiki-purple
+    border-radius: 500px
+
+    color: white
+    text-decoration: none
+
+    margin: 20px auto
+
+    transition: all .1s ease-in-out
+
+    &:hover
+        transform: scale(1.05)

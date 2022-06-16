@@ -109,7 +109,7 @@ export default {
 @import "assets/styles/mixins"
 
 .sidebar
-  width: 243px
+  width: 241px
   height: 100vh
   overflow: hidden
 

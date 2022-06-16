@@ -80,5 +80,5 @@ export default {
 .insightList
   display: flex
   flex-direction: column
-  min-width: 200px
+  min-width: 400px
 </style>

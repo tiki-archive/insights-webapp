@@ -1,108 +1,88 @@
 <template>
-  <div class="pageContainer">
+  <div class="themeStandardPageContainer">
     <insight-header
       name="Best Subject Lines"
       source="Dr Martens"
       icon="https://gyazo.com/16f7279929955b76d85115e146c08f68.png"
     />
 
-    <div class="mainContentContainer">
-      <insight-navbar />
+    <insight-navbar
+      @addToDashboard="openAddDashboard"
+      @addToPipeline="openAddPipeline"
+    />
 
-      <span>
-        <img src="https://gyazo.com/18cda419411923c058c8ddbf0a703f9b.png" />
-      </span>
+    <section>
+      <img src="https://gyazo.com/18cda419411923c058c8ddbf0a703f9b.png" />
+    </section>
 
+    <section>
       <TitleDescription
         title="Description"
         description="The Customer Location insight details the number of customers purchasing items from the brand. The insight may be helpful in determining target markets, competitive opportunities, or optimizing marketing spend."
       />
+    </section>
 
-      <span>
-        <span class="heading">
-          <h2>
-            <NuxtLink
-              class="headingLink"
-              :to="'/search/dashboard/' + searchTerm"
-            >
-              Recommended Insights
-            </NuxtLink>
-          </h2>
+    <section>
+      <content-heading text="Insights" link="test" />
 
-          <NuxtLink class="seeAll" :to="'/search/dashboard/' + searchTerm">
-            SEE ALL
-          </NuxtLink>
-        </span>
+      <wide-card-list />
+    </section>
 
-        <wide-card-list />
-      </span>
-    </div>
+    <insight-add-to-dashboard
+      v-if="this.addToDashboard"
+      @clickedOut="closeAddDashboard"
+    />
+
+    <insight-add-to-pipeline
+      v-if="this.addToPipeline"
+      @clickedOut="closeAddPipeline"
+    />
   </div>
 </template>
 
 <script>
+import InsightAddToDashboard from '~/components/insight_add_to_dashboard_menu/InsightAddToDashboard.vue'
 import InsightHeader from '~/components/insight_header/InsightHeader.vue'
 import TitleDescription from '~/components/title_description/TitleDescription.vue'
 export default {
-  components: { InsightHeader, TitleDescription },
+  components: {
+    InsightHeader,
+    TitleDescription,
+    InsightAddToDashboard,
+  },
   data() {
     return {
+      addToDashboard: false,
+      addToPipeline: false,
       slug: this.$route.params.insight,
       filters: this.$route.query.location,
     }
   },
   methods: {
-    filterProduct() {
-      this.$router.push({
-        query: Object.assign({}, this.$route.query, {
-          location: 'USA',
-          time: '1week',
-        }),
-      })
+    openAddDashboard() {
+      console.log('Open add dashboard')
+      this.addToDashboard = true
     },
-  },
-  created() {
-    console.log(this.$route.query)
+    closeAddDashboard() {
+      console.log('close add dashboard')
+      this.addToDashboard = false
+    },
+    openAddPipeline() {
+      console.log('Open add pipeline')
+      this.addToPipeline = true
+    },
+    closeAddPipeline() {
+      console.log('close add pipeline')
+      this.addToPipeline = false
+    },
   },
 }
 </script>
 
 <style scoped lang="sass">
-@import "assets/styles/theme"
-
-.mainContentContainer
-  margin: 0 32px
-
-  display: flex
-  flex-wrap: wrap
-  flex-direction: column
-
-  gap: 32px
-
-.heading
-  display: flex
-
-h2
-  margin: 16px 0
+@import "assets/styles/theme/default"
 
 img
   margin: auto
   display: flex
-.seeAll
-  color: $see-all-text
-  font-weight: 800
-  font-size: .875rem
-  text-decoration: none
-
-  margin: auto 0 auto auto
-
-  &:hover
-    text-decoration: underline
-
-.headingLink
-  text-decoration: none
-  color: white
-
-  &:hover
-    text-decoration: underline
 </style>

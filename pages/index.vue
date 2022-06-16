@@ -1,16 +1,21 @@
 <template>
-  <div class="pageContainer">
-    <h1 class="titleText">Welcome back</h1>
-    <wide-card-list class="mostRelevant" title="Insights you might like" />
+  <div class="themeStandardPageContainer">
+    <section>
+      <h1>Welcome back</h1>
+      <wide-card-list title="Insights you might like" />
+    </section>
 
-    <h2 class="titleText">Insights, but tall this time</h2>
-    <tall-card-list class="mostRelevant" />
+    <section>
+      <h2>Insights, but tall this time</h2>
+      <tall-card-list />
+    </section>
 
-    <title-description
-      class="titleText"
-      title="Description"
-      description="The Best Subject Lines insight details the highest performing subject lines from the brand. The insight may be helpful in determining customer engagement, conversion rates, customer interests, and campaign optimization. "
-    />
+    <section>
+      <title-description
+        title="Description"
+        description="The Best Subject Lines insight details the highest performing subject lines from the brand. The insight may be helpful in determining customer engagement, conversion rates, customer interests, and campaign optimization. "
+      />
+    </section>
   </div>
 </template>
 
@@ -26,18 +31,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "assets/styles/theme"
-
-.pageContainer
-  margin: 24px 32px
-  overflow: hidden
-  position: relative
-
-.titleText
-  margin: 70px 0 16px
-
-.mostRelevant
-  width: 100%
-  margin: 0 auto
-  display: block
+@import "assets/styles/theme/default"
 </style>

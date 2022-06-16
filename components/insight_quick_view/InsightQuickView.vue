@@ -27,8 +27,6 @@ export default {
 @import "assets/styles/theme"
 
 .insightCard
-  width: 100%
-
   text-decoration: none
 
 .cardContent

@@ -1,14 +1,12 @@
 <template>
-  <div class="tallCardList">
-    <div :class="'tallCardGrid' + (show_all ? '' : ' oneRowGrid')">
-      <tall-card-list-item
-        v-for="item in cards"
-        :key="item.name"
-        :title="item.title"
-        :description="item.description"
-        :source="item.source"
-      />
-    </div>
+  <div :class="'tallCardGrid' + (show_all ? '' : ' oneRowGrid')">
+    <tall-card-list-item
+      v-for="item in cards"
+      :key="item.name"
+      :title="item.title"
+      :description="item.description"
+      :source="item.source"
+    />
   </div>
 </template>
 
@@ -88,14 +86,14 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "assets/styles/theme"
+@import "assets/styles/theme/default"
 .tallCardGrid
   display: grid
 
   grid-template: auto/repeat(auto-fill,minmax(max(180px,10%),1fr))
-  grid-column-gap: 24px
 
-  grid-row-gap: min(2.2vh, 22px)
+  grid-column-gap: $page-col-gap
+  grid-row-gap: $page-row-gap
 
   justify-content: space-between
 

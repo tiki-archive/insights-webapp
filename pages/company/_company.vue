@@ -1,5 +1,5 @@
 <template>
-  <div class="pageContainer">
+  <div class="companyPageContainer">
     <company-header
       name="Dr Martens"
       :monthly_users="'103,301'"
@@ -7,88 +7,53 @@
       @setFollowing="setFollowing"
     />
 
-    <div class="mainContentContainer">
-      <div class="searchResultsContainer">
-        <span class="topResult">
-          <span class="heading">
-            <h2>
-              <NuxtLink
-                class="headingLink"
-                :to="'/search/insights/' + searchTerm"
-              >
-                Popular
-              </NuxtLink>
-            </h2>
-
-            <NuxtLink class="seeAll" :to="'/search/insights/' + searchTerm">
-              SEE ALL
-            </NuxtLink>
-          </span>
+    <div class="themeStandardPageContainer companyPageContent">
+      <section class="themeMultiContentSection">
+        <span>
+          <content-heading
+            text="Popular"
+            :link="'/search/insights/' + searchTerm"
+          />
 
           <insight-list />
         </span>
 
-        <span class="secondaryResult">
-          <span class="heading">
-            <h2>
-              <NuxtLink
-                class="headingLink"
-                :to="'/search/insights/' + searchTerm"
-              >
-                You liked
-              </NuxtLink>
-            </h2>
-          </span>
+        <span>
+          <content-heading
+            text="You liked"
+            :link="'/search/insights/' + searchTerm"
+          />
 
           <insight-list :number="false" :confidence_levels="false" />
         </span>
+      </section>
 
-        <span class="gridRow">
-          <span class="heading">
-            <h2>
-              <NuxtLink
-                class="headingLink"
-                :to="'/search/companies/' + searchTerm"
-              >
-                Companies
-              </NuxtLink>
-            </h2>
+      <section>
+        <content-heading
+          text="Insights"
+          :link="'/search/insights/' + searchTerm"
+        />
 
-            <NuxtLink class="seeAll" :to="'/search/companies/' + searchTerm">
-              SEE ALL
-            </NuxtLink>
-          </span>
+        <tall-card-list />
+      </section>
 
-          <tall-card-list />
-        </span>
+      <section>
+        <content-heading
+          text="Dashboards"
+          :link="'/search/insights/' + searchTerm"
+        />
 
-        <span class="gridRow">
-          <span class="heading">
-            <h2>
-              <NuxtLink
-                class="headingLink"
-                :to="'/search/dashboard/' + searchTerm"
-              >
-                Dashboards
-              </NuxtLink>
-            </h2>
-
-            <NuxtLink class="seeAll" :to="'/search/dashboard/' + searchTerm">
-              SEE ALL
-            </NuxtLink>
-          </span>
-
-          <tall-card-list />
-        </span>
-      </div>
+        <tall-card-list />
+      </section>
     </div>
   </div>
 </template>
 
 <script>
 import CompanyHeader from '~/components/company_header/CompanyHeader.vue'
+import ContentHeading from '~/components/content_heading/ContentHeading.vue'
 export default {
-  components: { CompanyHeader },
+  components: { CompanyHeader, ContentHeading },
   data() {
     return {
       slug: this.$route.params.company,
@@ -105,52 +70,9 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "assets/styles/theme"
-
-.mainContentContainer
-  margin: auto 32px
-  padding-top: 30px
-
-.searchResultsContainer
-  display: grid
-
-  grid-template: 332px/repeat(auto-fill,minmax(max(180px,10%),1fr))
-  grid-column-gap: 24px
-  grid-row-gap: min(2.2vh, 22px)
-
-  justify-content: space-between
-
-.topResult
-  grid-column: 1 / 4
-  height: 260px
-
-.secondaryResult
-  grid-column: span 2 / -1
-
-.gridRow
-   grid-column: 1 / -1
-
-.heading
-  display: flex
-
-h2
-  margin: 16px 0
-
-.seeAll
-  color: $see-all-text
-  font-weight: 800
-  font-size: .875rem
-  text-decoration: none
-
-  margin: auto 0 auto auto
-
-  &:hover
-    text-decoration: underline
-
-.headingLink
-  text-decoration: none
-  color: white
-
-  &:hover
-    text-decoration: underline
+@import "assets/styles/theme/default"
+.companyPageContainer
+  margin: auto 0
+.companyPageContent
+  margin-top: $page-row-gap
 </style>

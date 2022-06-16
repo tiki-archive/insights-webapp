@@ -67,7 +67,7 @@ export default {
   height: $navbar-height
   position: fixed
   right: 0
-  width: calc(100vw - 243px)
+  width: calc(100vw - 241px)
 .userInfo
   margin: auto 32px auto auto
   float: right

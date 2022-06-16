@@ -1,17 +1,15 @@
 <template>
-  <div class="insightHeader">
-    <span class="insightHeaderInfo">
-      <span class="headerImageContainer">
-        <img class="headerImage" v-if="validURL(this.icon)" :src="this.icon" />
-        <utils-svg-cmp class="headerImage" v-else :name="this.icon" />
-      </span>
-      <span class="headerInfo">
-        <span class="insightLabel">Insight</span>
-        <span class="insightName">{{ name }}</span>
-        <span class="insightSource">{{ source }}</span>
-      </span>
+  <span class="insightHeader">
+    <span class="headerImageContainer">
+      <img class="headerImage" v-if="validURL(this.icon)" :src="this.icon" />
+      <utils-svg-cmp class="headerImage" v-else :name="this.icon" />
     </span>
-  </div>
+    <span class="headerInfo">
+      <span class="themeHeaderLabel">Insight</span>
+      <span class="themeBigHeaderText">{{ name }}</span>
+      <span class="themeHeaderSource">{{ source }}</span>
+    </span>
+  </span>
 </template>
 
 <script>
@@ -40,27 +38,17 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "assets/styles/theme"
-
-.insightHeaderInfo
-  display: flex
-  align-items: flex-end
-
-  gap: 24px
+@import "assets/styles/theme/default"
 
 .insightHeader
-  padding: 0 32px 32px
-
   width: 100%
-  height: 320px
-
-  box-sizing: border-box !important
-
-  flex-direction: column
 
   display: flex
   justify-content: flex-end
 
+  gap: 24px
+
+  align-items: flex-end
 
 .headerImageContainer
   width: 200px !important
@@ -76,30 +64,7 @@ export default {
   display: flex
   flex-direction: column
 
-  color: white
-  font-size: 1rem
-
-  box-sizing: border-box
-
   width: 100%
 
   overflow: hidden
-
-.insightName
-  color: white
-  font-size: min(6rem, calc(6vw))
-  line-height: 6rem
-  padding: 8px 0
-
-  letter-spacing: -0.04em
-
-  font-weight: 800
-
-  overflow: hidden
-  white-space: nowrap
-  text-overflow: ellipsis
-
-.insightSource
-  font-size: 1.375rem
-  font-weight: 600
 </style>

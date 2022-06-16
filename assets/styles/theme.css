@@ -1,0 +1,46 @@
+/*
+ ** Color Definitions
+ */
+/*
+ ** Font Definitions
+ */
+h1 {
+  color: white;
+  font: "Nunito Sans", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+h2 {
+  color: white;
+  font: "Nunito Sans", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+h3 {
+  color: white;
+  font: "Nunito Sans", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+/*
+ ** Font Definitions
+ */
+.purpleButton {
+  padding: 16px 48px;
+  background-color: #27002E;
+  border-radius: 500px;
+  color: white;
+  text-decoration: none;
+  margin: 20px auto;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+
+.purpleButton:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+/*# sourceMappingURL=theme.css.map */

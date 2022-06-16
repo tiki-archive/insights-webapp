@@ -1,16 +1,15 @@
 <template>
-  <div class="pageContainer">
-    <!-- <search-bar /> -->
-    <span class="gridRow">
+  <div class="themeStandardPageContainer">
+    <span>
       <h2>All {{ category }} for "{{ searchTerm }}"</h2>
-      <tall-card-list class="mostRelevant" :show_all="true" />
+
+      <tall-card-list :show_all="true" />
     </span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeFull',
   components: {},
   data() {
     console.log(this.$route.params.search)
@@ -24,12 +23,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "assets/styles/theme"
-
-.pageContainer
-  margin: calc(4vh + 24px) 32px 0
-  overflow: hidden
-  position: relative
-
-  display: block
+@import "assets/styles/theme/default"
 </style>

@@ -70,7 +70,7 @@ body
   z-index: 15
 
 .mainContainer
-  width: calc(100vw - 243px) // this is loose as hell
+  width: calc(100vw - 241px) // this is loose as hell
   max-height: 100vh
 
   box-sizing: border-box
