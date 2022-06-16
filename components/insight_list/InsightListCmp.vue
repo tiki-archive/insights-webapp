@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import InsightListItem from './InsightListItem.vue'
+import InsightListItem from './InsightListItemCmp.vue'
 export default {
   components: { InsightListItem },
   props: {

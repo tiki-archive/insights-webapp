@@ -32,9 +32,9 @@
 </template>
 
 <script>
-import FullPagePopup from '../fullpage_popup/FullPagePopup.vue'
+import FullPagePopup from '../fullpage_popup/FullPagePopupCmp.vue'
 import UtilsSvgCmp from '../utils/UtilsSvgCmp.vue'
-import InsightAddToPipelineList from './InsightAddToPipelineList.vue'
+import InsightAddToPipelineList from './InsightAddToPipelineListCmp.vue'
 
 export default {
   components: { FullPagePopup, UtilsSvgCmp, InsightAddToPipelineList },

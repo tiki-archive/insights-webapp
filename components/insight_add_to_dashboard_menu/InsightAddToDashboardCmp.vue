@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import FullPagePopup from '../fullpage_popup/FullPagePopup.vue'
+import FullPagePopup from '../fullpage_popup/FullPagePopupCmp.vue'
 import UtilsSvgCmp from '../utils/UtilsSvgCmp.vue'
-import InsightAddToDashboardList from './InsightAddToDashboardList.vue'
+import InsightAddToDashboardList from './InsightAddToDashboardListCmp.vue'
 export default {
   components: { FullPagePopup, UtilsSvgCmp, InsightAddToDashboardList },
   name: 'InsightAddToDashboard',

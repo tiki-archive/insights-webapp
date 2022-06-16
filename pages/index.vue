@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import WideCardList from '~/components/wide_card_list/WideCardList.vue'
-import TallCardList from '~/components/tall_card_list/TallCardList.vue'
-import TitleDescription from '~/components/title_description/TitleDescription.vue'
+import WideCardList from '~/components/wide_card_list/WideCardListCmp.vue'
+import TallCardList from '~/components/tall_card_list/TallCardListCmp.vue'
+import TitleDescription from '~/components/title_description/TitleDescriptionCmp.vue'
 export default {
   name: 'HomeFull',
   components: { WideCardList, TallCardList, TitleDescription },

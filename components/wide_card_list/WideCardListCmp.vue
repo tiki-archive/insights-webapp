@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import WideCardListItem from './WideCardListItem.vue'
+import WideCardListItem from './WideCardListItemCmp.vue'
 export default {
   components: { WideCardListItem },
   name: 'HomeFull',

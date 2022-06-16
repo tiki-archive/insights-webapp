@@ -41,14 +41,19 @@
 </template>
 
 <script>
-import InsightAddToDashboard from '~/components/insight_add_to_dashboard_menu/InsightAddToDashboard.vue'
-import InsightHeader from '~/components/insight_header/InsightHeader.vue'
-import TitleDescription from '~/components/title_description/TitleDescription.vue'
+import InsightAddToDashboard from '~/components/insight_add_to_dashboard_menu/InsightAddToDashboardCmp.vue'
+import InsightHeader from '~/components/insight_header/InsightHeaderCmp.vue'
+import InsightNavbar from '~/components/insight_navbar/InsightNavbarCmp.vue'
+import TitleDescription from '~/components/title_description/TitleDescriptionCmp.vue'
+import WideCardList from '~/components/wide_card_list/WideCardListCmp.vue'
+
 export default {
   components: {
     InsightHeader,
     TitleDescription,
     InsightAddToDashboard,
+    InsightNavbar,
+    WideCardList,
   },
   data() {
     return {

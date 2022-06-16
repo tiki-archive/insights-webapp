@@ -25,11 +25,12 @@
 </template>
 
 <script>
-import NotifyUseDesktop from '~/components/notify_use_desktop/NotifyUseDesktop.vue'
-import Sidebar from '~/components/sidebar/Sidebar.vue'
+import Navbar from '~/components/navbar/NavbarCmp.vue'
+import NotifyUseDesktop from '~/components/notify_use_desktop/NotifyUseDesktopCmp.vue'
+import Sidebar from '~/components/sidebar/SidebarCmp.vue'
 
 export default {
-  components: { Sidebar, NotifyUseDesktop },
+  components: { Sidebar, NotifyUseDesktop, Navbar },
   name: 'DefaultLayout',
   data() {
     return {

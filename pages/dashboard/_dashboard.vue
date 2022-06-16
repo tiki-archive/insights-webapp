@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import InsightQuickView from '~/components/insight_quick_view/InsightQuickView.vue'
+import InsightQuickView from '~/components/insight_quick_view/InsightQuickViewCmp.vue'
 export default {
   components: { InsightQuickView },
   data() {

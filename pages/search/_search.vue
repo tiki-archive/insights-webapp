@@ -37,9 +37,9 @@
 </template>
 
 <script>
-import TopResultCard from '~/components/top_result_card/TopResultCard.vue'
-import InsightList from '~/components/insight_list/InsightList.vue'
-import ContentHeading from '~/components/content_heading/ContentHeading.vue'
+import TopResultCard from '~/components/top_result_card/TopResultCardCmp.vue'
+import InsightList from '~/components/insight_list/InsightListCmp.vue'
+import ContentHeading from '~/components/content_heading/ContentHeadingCmp.vue'
 
 export default {
   name: 'HomeFull',

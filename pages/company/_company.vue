@@ -50,8 +50,8 @@
 </template>
 
 <script>
-import CompanyHeader from '~/components/company_header/CompanyHeader.vue'
-import ContentHeading from '~/components/content_heading/ContentHeading.vue'
+import CompanyHeader from '~/components/company_header/CompanyHeaderCmp.vue'
+import ContentHeading from '~/components/content_heading/ContentHeadingCmp.vue'
 export default {
   components: { CompanyHeader, ContentHeading },
   data() {

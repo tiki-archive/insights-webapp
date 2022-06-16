@@ -55,8 +55,8 @@
 </template>
 
 <script>
-import SidebarDashboardList from './SidebarDashboardList.vue'
-import SidebarNavItem from './SidebarNavItem.vue'
+import SidebarDashboardList from './SidebarDashboardListCmp.vue'
+import SidebarNavItem from './SidebarNavItemCmp.vue'
 import UtilsSvgCmp from '../utils/UtilsSvgCmp.vue'
 export default {
   components: { SidebarNavItem, SidebarDashboardList, UtilsSvgCmp },

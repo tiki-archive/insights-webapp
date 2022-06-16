@@ -15,7 +15,7 @@
 
 <script>
 import UtilsSvgCmp from '../utils/UtilsSvgCmp.vue'
-import InsightNavbarFilter from './InsightNavbarFilter.vue'
+import InsightNavbarFilter from './InsightNavbarFilterCmp.vue'
 export default {
   components: { UtilsSvgCmp, InsightNavbarFilter },
   props: [],

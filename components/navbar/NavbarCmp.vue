@@ -24,12 +24,13 @@
 </template>
 
 <script>
-import ProfileButton from '../profile_button/ProfileButton.vue'
-import SearchBar from '../search_bar/SearchBar.vue'
+import NavigationArrows from '../navigation_arrows/NavigationArrowsCmp.vue'
+import ProfileButton from '../profile_button/ProfileButtonCmp.vue'
+import SearchBar from '../search_bar/SearchBarCmp.vue'
 export default {
-  components: { ProfileButton, SearchBar },
-  name: 'SidebarFull',
-  props: ['name', 'icon', 'showSearch'],
+  components: { NavigationArrows, ProfileButton, SearchBar },
+  name: 'NavbarFull',
+  NavigationArrowsps: ['name', 'icon', 'showSearch'],
   data() {
     return {
       loggedIn: false,

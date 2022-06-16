@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import TallCardListItem from './TallCardListItem.vue'
+import TallCardListItem from './TallCardListItemCmp.vue'
 export default {
   components: { TallCardListItem },
   name: 'HomeFull',
