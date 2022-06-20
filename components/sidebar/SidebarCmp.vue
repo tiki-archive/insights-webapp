@@ -38,7 +38,7 @@
         <sidebar-nav-item
           text="Your Company"
           icon="icon_your_company"
-          destination=""
+          destination="/company/drmartens"
         />
       </div>
 
@@ -66,26 +66,26 @@ export default {
       temp_dashboards: [
         {
           name: 'Some Random Dashboard 1 2 2e  we we we we w2 ee ',
-          destination: '/dashboard/test',
+          destination: '/dashboard/test1',
         },
         { name: 'Some Random Dashboard 2', destination: '/dashboard/test2' },
-        { name: 'Some Random Dashboard 3', destination: '/dashboard/test2' },
-        { name: 'Some Random Dashboard 4', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 1', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 2', destination: '/dashboard/test 5' },
-        { name: 'Some Random Dashboard 3', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 2', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 3', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 4', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 1', destination: '/dashboard/test 2' },
-        { name: 'Some Random Dashboard 2', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 3', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 2', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 3', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 4', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 1', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 2', destination: '/dashboard/test' },
-        { name: 'Some Random Dashboard 3', destination: '/dashboard/test' },
+        { name: 'Some Random Dashboard 3', destination: '/dashboard/test3' },
+        { name: 'Some Random Dashboard 4', destination: '/dashboard/test4' },
+        { name: 'Some Random Dashboard 1', destination: '/dashboard/test5' },
+        { name: 'Some Random Dashboard 2', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 3', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 2', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 3', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 4', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 1', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 2', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 3', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 2', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 3', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 4', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 1', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 2', destination: '/dashboard/test7' },
+        { name: 'Some Random Dashboard 3', destination: '/dashboard/test7' },
         { name: 'Some Random Dashboard 2', destination: '/dashboard/test' },
         { name: 'Some Random Dashboard 3', destination: '/dashboard/test' },
         { name: 'Some Random Dashboard 4', destination: '/dashboard/test' },

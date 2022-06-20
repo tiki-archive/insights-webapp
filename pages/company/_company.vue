@@ -15,7 +15,7 @@
             :link="'/search/insights/' + searchTerm"
           />
 
-          <insight-list />
+          <insight-list-cmp />
         </span>
 
         <span>
@@ -24,7 +24,7 @@
             :link="'/search/insights/' + searchTerm"
           />
 
-          <insight-list :number="false" :confidence_levels="false" />
+          <insight-list-cmp :number="false" :confidence_levels="false" />
         </span>
       </section>
 
@@ -34,7 +34,7 @@
           :link="'/search/insights/' + searchTerm"
         />
 
-        <tall-card-list />
+        <tall-card-list-cmp />
       </section>
 
       <section>
@@ -43,7 +43,7 @@
           :link="'/search/insights/' + searchTerm"
         />
 
-        <tall-card-list />
+        <tall-card-list-cmp />
       </section>
     </div>
   </div>
@@ -52,8 +52,15 @@
 <script>
 import CompanyHeader from '~/components/company_header/CompanyHeaderCmp.vue'
 import ContentHeading from '~/components/content_heading/ContentHeadingCmp.vue'
+import InsightListCmp from '~/components/insight_list/InsightListCmp.vue'
+import TallCardListCmp from '~/components/tall_card_list/TallCardListCmp.vue'
 export default {
-  components: { CompanyHeader, ContentHeading },
+  components: {
+    CompanyHeader,
+    ContentHeading,
+    InsightListCmp,
+    TallCardListCmp,
+  },
   data() {
     return {
       slug: this.$route.params.company,

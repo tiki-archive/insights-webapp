@@ -30,7 +30,7 @@ import SearchBar from '../search_bar/SearchBarCmp.vue'
 export default {
   components: { NavigationArrows, ProfileButton, SearchBar },
   name: 'NavbarFull',
-  NavigationArrowsps: ['name', 'icon', 'showSearch'],
+  props: ['name', 'icon', 'showSearch'],
   data() {
     return {
       loggedIn: false,

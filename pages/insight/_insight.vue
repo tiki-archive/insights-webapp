@@ -12,7 +12,8 @@
     />
 
     <section>
-      <img src="https://gyazo.com/18cda419411923c058c8ddbf0a703f9b.png" />
+      <pie-chart-cmp />
+      <!-- <img src="https://i.gyazo.com/dd876436e6da92f755591429e050036a.png" /> -->
     </section>
 
     <section>
@@ -41,6 +42,7 @@
 </template>
 
 <script>
+import PieChartCmp from '~/components/charts/pie/PieChartCmp.vue'
 import InsightAddToDashboard from '~/components/insight_add_to_dashboard_menu/InsightAddToDashboardCmp.vue'
 import InsightHeader from '~/components/insight_header/InsightHeaderCmp.vue'
 import InsightNavbar from '~/components/insight_navbar/InsightNavbarCmp.vue'
@@ -54,6 +56,7 @@ export default {
     InsightAddToDashboard,
     InsightNavbar,
     WideCardList,
+    PieChartCmp,
   },
   data() {
     return {
@@ -88,6 +91,7 @@ export default {
 @import "assets/styles/theme/default"
 
 img
+  width: 50%
   margin: auto
   display: flex
 </style>

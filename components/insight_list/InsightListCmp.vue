@@ -7,6 +7,7 @@
         :description="item.description"
         :icon="item.icon"
         :confidence_level="confidence_levels ? item.confidence_level : null"
+        :destination="'/insight/top-subject-lines'"
       />
     </div>
   </div>

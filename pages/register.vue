@@ -36,7 +36,7 @@ h1
 
   color: black
 
-  font-size: 2rem
+  font-size: 1.8rem
   font-weight: 800
 
   letter-spacing: -0.04em

@@ -4,7 +4,7 @@
 
     <section class="themeMultiContentSection topSection">
       <span class="topResult">
-        <h2 class="titleText">Top result {{ searchTerm }}</h2>
+        <h2 class="titleText">Top results</h2>
 
         <top-result-card
           title="Global Boot Market"
@@ -16,20 +16,20 @@
       </span>
 
       <span class="secondaryResult">
-        <content-heading text="Insights" link="test" />
+        <content-heading text="Insights" link="/search/insights/test" />
 
         <insight-list />
       </span>
     </section>
 
     <section>
-      <content-heading text="Companies" link="test" />
+      <content-heading text="Companies" link="/search/companies/test" />
 
-      <tall-card-list class="testTall" />
+      <tall-card-list />
     </section>
 
     <section>
-      <content-heading text="Dashboards" link="test" />
+      <content-heading text="Dashboards" link="/search/dashboards/test" />
 
       <tall-card-list />
     </section>
@@ -40,6 +40,7 @@
 import TopResultCard from '~/components/top_result_card/TopResultCardCmp.vue'
 import InsightList from '~/components/insight_list/InsightListCmp.vue'
 import ContentHeading from '~/components/content_heading/ContentHeadingCmp.vue'
+import TallCardList from '~/components/tall_card_list/TallCardListCmp.vue'
 
 export default {
   name: 'HomeFull',
@@ -47,6 +48,7 @@ export default {
     TopResultCard,
     InsightList,
     ContentHeading,
+    TallCardList,
   },
   data() {
     return {

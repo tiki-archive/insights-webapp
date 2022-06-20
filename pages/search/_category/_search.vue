@@ -9,8 +9,9 @@
 </template>
 
 <script>
+import TallCardList from '~/components/tall_card_list/TallCardListCmp.vue'
 export default {
-  components: {},
+  components: { TallCardList },
   data() {
     console.log(this.$route.params.search)
     return {
