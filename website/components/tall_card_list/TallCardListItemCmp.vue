@@ -33,6 +33,10 @@ export default {
 
 .cardImage
   width: 100%
+  background: white
+  overflow: hidden
+  fit-object: cover
+
   margin: 0 auto
   display: block
   border-radius: 4px

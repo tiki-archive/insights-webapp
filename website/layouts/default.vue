@@ -32,16 +32,6 @@ import Sidebar from '~/components/sidebar/SidebarCmp.vue'
 export default {
   components: { Sidebar, NotifyUseDesktop, Navbar },
   name: 'DefaultLayout',
-  data() {
-    return {
-      searchEnabled: false,
-    }
-  },
-  methods: {
-    enableSearch() {
-      this.searchEnabled = true
-    },
-  },
 
   scrollToTop: true,
 }

@@ -53,6 +53,9 @@ export default {
 
 .cardImage
   width: 108px
+  height: 108px
+  object-fit: cover
+  background: white
 
   margin: auto auto auto 0
 

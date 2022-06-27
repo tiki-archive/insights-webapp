@@ -31,9 +31,9 @@ export default {
       default: () => {
         return [
           {
-            name: 'Newsletter Performance',
-            description: 'Apple',
-            icon: 'icon_insight_horizontal_bar',
+            name: 'Top Subject Lines',
+            description: 'Amazon',
+            icon: 'icon_insight_circle',
             confidence_level: 95,
           },
           {
@@ -45,13 +45,13 @@ export default {
           {
             name: 'Inbox Profile',
             description: 'Global Boot Market',
-            icon: 'icon_insight_circle',
+            icon: 'icon_insight_horizontal_bar',
             confidence_level: 99,
           },
           {
-            name: 'Best Subject Lines',
-            description: 'Your Company',
-            icon: 'icon_insight_horizontal_bar',
+            name: 'Email Performance',
+            description: 'Consumer Fashion',
+            icon: 'icon_insight_vertical_bar',
             confidence_level: 98,
           },
         ]

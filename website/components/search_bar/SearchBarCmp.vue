@@ -24,15 +24,8 @@ export default {
   },
   watch: {
     searchTerm(newTerm, prevTerm) {
-      // this.$router.push({
-      //   path: '/search/' + newTerm,
-      // })
-
-      console.log('REPL STATE')
-      console.log(history.state)
       history.replaceState(history.state, null, '/search/' + newTerm)
-
-      console.log(history.state)
+      this.$nuxt.$emit('searchTermChanged', newTerm)
     },
   },
 }

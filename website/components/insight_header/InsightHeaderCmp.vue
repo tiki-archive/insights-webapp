@@ -59,6 +59,7 @@ export default {
     box-shadow: 0 4px 60px rgb(0 0 0 / 50%)
     width: 200px
     height: 200px
+    object-fit: cover
 
 .headerInfo
   display: flex

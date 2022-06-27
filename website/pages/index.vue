@@ -13,7 +13,7 @@
     <section>
       <title-description
         title="Description"
-        description="The Best Subject Lines insight details the highest performing subject lines from the brand. The insight may be helpful in determining customer engagement, conversion rates, customer interests, and campaign optimization. "
+        description="The Top Subject Lines insight details the highest performing subject lines from the brand. The insight may be helpful in determining customer engagement, conversion rates, customer interests, and campaign optimization. "
       />
     </section>
   </div>

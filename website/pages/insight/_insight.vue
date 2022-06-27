@@ -1,9 +1,9 @@
 <template>
   <div class="themeStandardPageContainer">
     <insight-header
-      name="Best Subject Lines"
+      name="Top Subject Lines"
       source="Dr Martens"
-      icon="https://gyazo.com/16f7279929955b76d85115e146c08f68.png"
+      icon="https://www.cravingsofalunatic.com/wp-content/uploads/2014/01/Birthday-Giveaway.png"
     />
 
     <insight-navbar
