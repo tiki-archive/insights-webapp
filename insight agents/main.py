@@ -2,42 +2,51 @@ import logging
 import boto3
 from botocore.exceptions import ClientError
 import os
+import requests
+import json
 
+
+
+KGRAPH_URL = "https://tiki-insights.s3.us-east-2.amazonaws.com/api_response.json"
 BUCKET_NAME = "tiki-insights"
 
-s3 = boto3.resource('s3')
 
-# # Print out bucket names
-# for bucket in s3.buckets.all():
-#     print(bucket.name)
+# Connect to API and build insight
+
+# TODO: Authentication w/ kgraph
+
+response = requests.get(KGRAPH_URL).json()
+
+# Build specific insight data from response... see samples/most_frequent_subjects to see what we're building
+insight_data = []
+
+totalEmails = 0
+for subject in response:
+    result = subject[0]
+    totalEmails += result["occurrences"]
+
+for subject in response:
+    result = subject[0]
+
+    insight_data.append({
+        "key": result["subject"],
+        "value": round(100 * result["occurrences"] / totalEmails)
+    })
+
+# build insight using specific data
+insight = {'chart_type': 'PIE', 'chart_data': [
+    {
+        "filter": "Last 24 Hours",
+        "data": insight_data
+    }
+]}
+insight_as_json = json.dumps(insight)
+
+print(insight_as_json)
+
+# Upload to S3
+s3 = boto3.resource('s3')
+s3.Bucket(BUCKET_NAME).put_object(Key='companies/amazon/most_frequent_subjects.json', Body=insight_as_json)
 
 # Upload a new file
-data = open('samples/most_frequent_subjects.json', 'rb')
-s3.Bucket(BUCKET_NAME).put_object(Key='test_file2.json', Body=data)
-
-# def upload_file(file_name, bucket, object_name=None):
-#     """Upload a file to an S3 bucket
-#
-#     :param file_name: File to upload
-#     :param bucket: Bucket to upload to
-#     :param object_name: S3 object name. If not specified then file_name is used
-#     :return: True if file was uploaded, else False
-#     """
-#
-#     # If S3 object_name was not specified, use file_name
-#     if object_name is None:
-#         object_name = os.path.basename(file_name)
-#
-#     # Upload the file
-#     s3_client = boto3.client('s3')
-#     try:
-#         response = s3_client.upload_file(file_name, bucket, object_name)
-#     except ClientError as e:
-#         logging.error(e)
-#         return False
-#     return True
-#
-#
-# s3 = boto3.client('s3')
-# with open("samples/most_frequent_subjects.json", "rb") as f:
-#     s3.upload_fileobj(f, BUCKET_NAME)
+# data = open('samples/most_frequent_subjects.json', 'rb')

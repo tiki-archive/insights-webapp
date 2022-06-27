@@ -2,16 +2,10 @@
     "chart_type": "PIE",
     "chart_data": [
         {
-            "filter": "Last 24212 Hours",
+            "filter": "Last 24 Hours",
             "data": [{"key": "Email Title 1", "value": 66},
                      {"key": "Email Subject 2", "value": 21},
                      {"key": "Email Subject 3", "value": 13}]
-        },
-        {
-            "filter": "Last 7 Days",
-            "data": [{"key": "Email Title 1", "value": 30},
-                     {"key": "Email Subject 2", "value": 50},
-                     {"key": "Email Subject 3", "value": 20}]
         }
     ]
 }
